@@ -43,7 +43,8 @@ Partial Class FrmPrincipal
         Me.NameTextBox = New System.Windows.Forms.TextBox()
         Me.MailTextBox = New System.Windows.Forms.TextBox()
         Me.BirthdayDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BtnInsertar = New System.Windows.Forms.Button()
+        Me.BtnBorrar = New System.Windows.Forms.Button()
         IdPKLabel = New System.Windows.Forms.Label()
         IdNumberLabel = New System.Windows.Forms.Label()
         NameLabel = New System.Windows.Forms.Label()
@@ -206,26 +207,37 @@ Partial Class FrmPrincipal
         'BirthdayDateTimePicker
         '
         Me.BirthdayDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.EmployeeBindingSource, "Birthday", True))
+        Me.BirthdayDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.BirthdayDateTimePicker.Location = New System.Drawing.Point(699, 128)
         Me.BirthdayDateTimePicker.Name = "BirthdayDateTimePicker"
         Me.BirthdayDateTimePicker.Size = New System.Drawing.Size(200, 20)
         Me.BirthdayDateTimePicker.TabIndex = 10
         '
-        'Button1
+        'BtnInsertar
         '
-        Me.Button1.Location = New System.Drawing.Point(751, 371)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(148, 36)
-        Me.Button1.TabIndex = 11
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.BtnInsertar.Location = New System.Drawing.Point(22, 274)
+        Me.BtnInsertar.Name = "BtnInsertar"
+        Me.BtnInsertar.Size = New System.Drawing.Size(148, 36)
+        Me.BtnInsertar.TabIndex = 11
+        Me.BtnInsertar.Text = "Insertar"
+        Me.BtnInsertar.UseVisualStyleBackColor = True
+        '
+        'BtnBorrar
+        '
+        Me.BtnBorrar.Location = New System.Drawing.Point(188, 274)
+        Me.BtnBorrar.Name = "BtnBorrar"
+        Me.BtnBorrar.Size = New System.Drawing.Size(148, 36)
+        Me.BtnBorrar.TabIndex = 11
+        Me.BtnBorrar.Text = "Borrar"
+        Me.BtnBorrar.UseVisualStyleBackColor = True
         '
         'FrmPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(934, 419)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.BtnBorrar)
+        Me.Controls.Add(Me.BtnInsertar)
         Me.Controls.Add(IdPKLabel)
         Me.Controls.Add(Me.IdPKTextBox)
         Me.Controls.Add(IdNumberLabel)
@@ -262,5 +274,6 @@ Partial Class FrmPrincipal
     Friend WithEvents NameTextBox As TextBox
     Friend WithEvents MailTextBox As TextBox
     Friend WithEvents BirthdayDateTimePicker As DateTimePicker
-    Friend WithEvents Button1 As Button
+    Friend WithEvents BtnInsertar As Button
+    Friend WithEvents BtnBorrar As Button
 End Class
