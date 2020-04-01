@@ -1,7 +1,7 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
 Public Class Conexion
-    Private conexion As New SqlConnection(My.Settings.cnx)
+    Public conexion As New SqlConnection(My.Settings.cnx)
 
 
     Sub Conectar()
