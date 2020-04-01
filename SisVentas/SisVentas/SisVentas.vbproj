@@ -73,6 +73,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\Conexion.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +116,11 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Logica\" />
+    <Folder Include="Presentacion\" />
+    <Folder Include="Reporte\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
