@@ -38,4 +38,26 @@ Public Class fCliente
         Desconectar()
     End Function
 
+
+    Public Function EditarCliente(ByVal Objeto As Cliente) As Boolean
+        Conectar()
+        cmd = New SqlCommand("Cliente_Actualizar")
+        cmd.CommandType = CommandType.StoredProcedure
+        cmd.Connection = conexion
+
+        cmd.Parameters.AddWithValue("@IdCliente", Objeto.IdCliente)
+        cmd.Parameters.AddWithValue("@Nombre", Objeto.Nombre)
+        cmd.Parameters.AddWithValue("@Apellido", Objeto.Apellido)
+        cmd.Parameters.AddWithValue("@Direccion", Objeto.Direccion)
+        cmd.Parameters.AddWithValue("@Telefono", Objeto.Telefono)
+        cmd.Parameters.AddWithValue("@DNI", Objeto.Dni)
+
+        cmd.ExecuteNonQuery()
+        Return True
+        Desconectar()
+
+
+
+    End Function
+
 End Class

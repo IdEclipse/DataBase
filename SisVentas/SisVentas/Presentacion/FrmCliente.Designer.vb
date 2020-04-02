@@ -192,8 +192,7 @@ Partial Class FrmCliente
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.BtnCancelar)
-        Me.GroupBox1.Controls.Add(Me.BtnGuardar)
+        Me.GroupBox1.Controls.Add(Me.BtnEliminar)
         Me.GroupBox1.Controls.Add(Me.BtnEditar)
         Me.GroupBox1.Controls.Add(Me.BtnNuevo)
         Me.GroupBox1.Controls.Add(Me.IdClienteTextBox)
@@ -219,7 +218,7 @@ Partial Class FrmCliente
         '
         'BtnCancelar
         '
-        Me.BtnCancelar.Location = New System.Drawing.Point(277, 250)
+        Me.BtnCancelar.Location = New System.Drawing.Point(486, 250)
         Me.BtnCancelar.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnCancelar.Name = "BtnCancelar"
         Me.BtnCancelar.Size = New System.Drawing.Size(127, 32)
@@ -229,7 +228,7 @@ Partial Class FrmCliente
         '
         'BtnEditar
         '
-        Me.BtnEditar.Location = New System.Drawing.Point(142, 217)
+        Me.BtnEditar.Location = New System.Drawing.Point(143, 250)
         Me.BtnEditar.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnEditar.Name = "BtnEditar"
         Me.BtnEditar.Size = New System.Drawing.Size(127, 32)
@@ -249,7 +248,8 @@ Partial Class FrmCliente
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.BtnEliminar)
+        Me.GroupBox2.Controls.Add(Me.BtnGuardar)
+        Me.GroupBox2.Controls.Add(Me.BtnCancelar)
         Me.GroupBox2.Controls.Add(Me.LnkMensaje)
         Me.GroupBox2.Controls.Add(Me.CboCampo)
         Me.GroupBox2.Controls.Add(Me.DgvListado)
@@ -265,7 +265,7 @@ Partial Class FrmCliente
         '
         'BtnEliminar
         '
-        Me.BtnEliminar.Location = New System.Drawing.Point(17, 250)
+        Me.BtnEliminar.Location = New System.Drawing.Point(278, 250)
         Me.BtnEliminar.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnEliminar.Name = "BtnEliminar"
         Me.BtnEliminar.Size = New System.Drawing.Size(127, 32)
@@ -283,6 +283,7 @@ Partial Class FrmCliente
         Me.LnkMensaje.TabIndex = 4
         Me.LnkMensaje.TabStop = True
         Me.LnkMensaje.Text = "Inexistente"
+        Me.LnkMensaje.Visible = False
         '
         'CboCampo
         '
@@ -292,7 +293,7 @@ Partial Class FrmCliente
         Me.CboCampo.Margin = New System.Windows.Forms.Padding(4)
         Me.CboCampo.Name = "CboCampo"
         Me.CboCampo.Size = New System.Drawing.Size(195, 24)
-        Me.CboCampo.TabIndex = 1
+        Me.CboCampo.TabIndex = 0
         Me.CboCampo.Text = "DNI"
         '
         'TxtBuscar
@@ -309,7 +310,7 @@ Partial Class FrmCliente
         '
         'BtnGuardar
         '
-        Me.BtnGuardar.Location = New System.Drawing.Point(142, 250)
+        Me.BtnGuardar.Location = New System.Drawing.Point(621, 250)
         Me.BtnGuardar.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnGuardar.Name = "BtnGuardar"
         Me.BtnGuardar.Size = New System.Drawing.Size(127, 32)

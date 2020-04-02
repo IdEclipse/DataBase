@@ -5,6 +5,7 @@ Public Class FrmCliente
 
     Private Sub FrmCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Mostrar()
+        CargarInformacionCajaTextos()
 
     End Sub
 
@@ -130,5 +131,53 @@ Public Class FrmCliente
 
 
 
+    End Sub
+
+    Private Sub DgvListado_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DgvListado.CellEnter
+
+    End Sub
+
+    Private Sub CargarInformacionCajaTextos()
+        IdClienteTextBox.Text = DgvListado.CurrentRow.Cells("IdCliente").Value.ToString
+        NombreTextBox.Text = DgvListado.CurrentRow.Cells("Nombre").Value.ToString
+        ApellidoTextBox.Text = DgvListado.CurrentRow.Cells("Apellido").Value.ToString
+        DireccionTextBox.Text = DgvListado.CurrentRow.Cells("Direccion").Value.ToString
+        TelefonoTextBox.Text = DgvListado.CurrentRow.Cells("Telefono").Value.ToString
+        DNITextBox.Text = DgvListado.CurrentRow.Cells("DNI").Value.ToString
+    End Sub
+
+    Private Sub DgvListado_Click(sender As Object, e As EventArgs) Handles DgvListado.Click
+        CargarInformacionCajaTextos()
+    End Sub
+
+    Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
+#Region "Validar Formularios"
+        If Me.ValidateChildren = True And
+                NombreTextBox.Text <> "" And
+                ApellidoTextBox.Text <> "" And
+                DireccionTextBox.Text <> "" And
+                TelefonoTextBox.Text <> "" And
+                DNITextBox.Text <> "" Then
+        Else
+            Exit Sub
+        End If
+#End Region
+
+        Dim objeto As New Cliente
+        Dim Operacion As New fCliente
+
+
+        objeto.IdCliente = IdClienteTextBox.Text
+        objeto.Nombre = NombreTextBox.Text
+        objeto.Apellido = ApellidoTextBox.Text
+        objeto.Direccion = DireccionTextBox.Text
+        objeto.Telefono = TelefonoTextBox.Text
+        objeto.Dni = DNITextBox.Text
+
+        If Operacion.EditarCliente(objeto) Then
+            MsgBox("Actualizado")
+        End If
+
+        Mostrar()
     End Sub
 End Class
