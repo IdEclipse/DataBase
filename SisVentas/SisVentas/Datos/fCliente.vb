@@ -21,6 +21,21 @@ Public Class fCliente
         Desconectar()
     End Function
 
+    Public Function InsertarCliente(ByVal Objeto As Cliente) As Boolean
+        Conectar()
+        cmd = New SqlCommand("Cliente_Insertar")
+        cmd.CommandType = CommandType.StoredProcedure
+        cmd.Connection = conexion
 
+        cmd.Parameters.AddWithValue("@Nombre", Objeto.Nombre)
+        cmd.Parameters.AddWithValue("@Apellido", Objeto.Apellido)
+        cmd.Parameters.AddWithValue("@Direccion", Objeto.Direccion)
+        cmd.Parameters.AddWithValue("@Telefono", Objeto.Telefono)
+        cmd.Parameters.AddWithValue("@DNI", Objeto.Dni)
+
+        cmd.ExecuteNonQuery()
+        Return True
+        Desconectar()
+    End Function
 
 End Class
