@@ -23,11 +23,7 @@ Public Class FrmCliente
 
 
 
-    Private Sub IdClienteTextBox_Validating(sender As Object, e As CancelEventArgs) Handles IdClienteTextBox.Validating
 
-
-
-    End Sub
 
     Private Sub NombreTextBox_Validating(sender As Object, e As CancelEventArgs) Handles NombreTextBox.Validating
 #Region "ValidarCajaTexto"
@@ -96,6 +92,7 @@ Public Class FrmCliente
     End Sub
 
     Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
+
         Limpiar()
         Mostrar()
 
@@ -133,9 +130,7 @@ Public Class FrmCliente
 
     End Sub
 
-    Private Sub DgvListado_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DgvListado.CellEnter
 
-    End Sub
 
     Private Sub CargarInformacionCajaTextos()
         IdClienteTextBox.Text = DgvListado.CurrentRow.Cells("IdCliente").Value.ToString
@@ -146,9 +141,7 @@ Public Class FrmCliente
         DNITextBox.Text = DgvListado.CurrentRow.Cells("DNI").Value.ToString
     End Sub
 
-    Private Sub DgvListado_Click(sender As Object, e As EventArgs) Handles DgvListado.Click
-        CargarInformacionCajaTextos()
-    End Sub
+
 
     Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
 #Region "Validar Formularios"
@@ -180,4 +173,27 @@ Public Class FrmCliente
 
         Mostrar()
     End Sub
+
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
+
+        Dim objeto As New Cliente
+        Dim Operacion As New fCliente
+
+
+        objeto.IdCliente = IdClienteTextBox.Text
+
+
+        If Operacion.EliminarCliente(objeto.IdCliente) Then
+            MsgBox("Eliminado")
+        End If
+
+        Mostrar()
+
+    End Sub
+
+
+
+
+
+
 End Class

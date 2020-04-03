@@ -56,8 +56,30 @@ Public Class fCliente
         Return True
         Desconectar()
 
+    End Function
+
+
+
+
+    Public Function EliminarCliente(ByVal Id As Integer) As Boolean
+        Conectar()
+        cmd = New SqlCommand("Cliente_Eliminar")
+        cmd.CommandType = CommandType.StoredProcedure
+        cmd.Connection = conexion
+
+        cmd.Parameters.AddWithValue("@IdCliente", Id)
+
+        cmd.ExecuteNonQuery()
+        Return True
+        Desconectar()
 
 
     End Function
+
+
+
+
+
+
 
 End Class
