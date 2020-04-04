@@ -74,7 +74,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\Conexion.vb" />
+    <Compile Include="Datos\fCategoria.vb" />
     <Compile Include="Datos\fCliente.vb" />
+    <Compile Include="Logica\Categoria.vb" />
     <Compile Include="Logica\Cliente.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -91,6 +93,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Presentacion\FrmCategoria.Designer.vb">
+      <DependentUpon>FrmCategoria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmCategoria.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Presentacion\FrmCliente.Designer.vb">
       <DependentUpon>FrmCliente.vb</DependentUpon>
     </Compile>
@@ -104,6 +112,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmCategoria.resx">
+      <DependentUpon>FrmCategoria.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmCliente.resx">
       <DependentUpon>FrmCliente.vb</DependentUpon>
