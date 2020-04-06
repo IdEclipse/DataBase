@@ -20,7 +20,7 @@ Public Class fCategoria
         Desconectar()
     End Function
 
-    Public Function InsertarCliente(ByVal Objeto As Categoria) As Boolean
+    Public Function InsertarCategoria(ByVal Objeto As Categoria) As Boolean
         Conectar()
         cmd = New SqlCommand("Categoria_Insertar")
         cmd.CommandType = CommandType.StoredProcedure
@@ -34,7 +34,7 @@ Public Class fCategoria
     End Function
 
 
-    Public Function EditarCliente(ByVal Objeto As Categoria) As Boolean
+    Public Function EditarCategoria(ByVal Objeto As Categoria) As Boolean
         Conectar()
         cmd = New SqlCommand("Categoria_Actualizar")
         cmd.CommandType = CommandType.StoredProcedure
@@ -53,7 +53,7 @@ Public Class fCategoria
 
 
 
-    Public Function EliminarCliente(ByVal Id As Integer) As Boolean
+    Public Function EliminarCategoria(ByVal Id As Integer) As Boolean
         Conectar()
         cmd = New SqlCommand("Categoria_Eliminar")
         cmd.CommandType = CommandType.StoredProcedure

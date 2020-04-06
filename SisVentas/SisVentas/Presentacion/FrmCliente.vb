@@ -190,9 +190,7 @@ Public Class FrmCliente
 
     End Sub
 
-    Private Sub DgvListado_CellEnter(sender As Object, e As DataGridViewCellEventArgs)
 
-    End Sub
 
     Private Sub DgvListado_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvListado.CellClick
         CargarInformacionCajaTextos()

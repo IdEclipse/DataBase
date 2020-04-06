@@ -45,6 +45,24 @@ Partial Class FrmCategoria
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
+        'NombreLabel
+        '
+        NombreLabel.AutoSize = True
+        NombreLabel.Location = New System.Drawing.Point(20, 51)
+        NombreLabel.Name = "NombreLabel"
+        NombreLabel.Size = New System.Drawing.Size(55, 13)
+        NombreLabel.TabIndex = 4
+        NombreLabel.Text = "Categoria:"
+        '
+        'IdClienteLabel
+        '
+        IdClienteLabel.AutoSize = True
+        IdClienteLabel.Location = New System.Drawing.Point(20, 25)
+        IdClienteLabel.Name = "IdClienteLabel"
+        IdClienteLabel.Size = New System.Drawing.Size(67, 13)
+        IdClienteLabel.TabIndex = 2
+        IdClienteLabel.Text = "Id Categoria:"
+        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.BtnGuardar)
@@ -183,24 +201,6 @@ Partial Class FrmCategoria
         Me.CetegoriaTextBox.Name = "CetegoriaTextBox"
         Me.CetegoriaTextBox.Size = New System.Drawing.Size(202, 20)
         Me.CetegoriaTextBox.TabIndex = 5
-        '
-        'NombreLabel
-        '
-        NombreLabel.AutoSize = True
-        NombreLabel.Location = New System.Drawing.Point(20, 51)
-        NombreLabel.Name = "NombreLabel"
-        NombreLabel.Size = New System.Drawing.Size(55, 13)
-        NombreLabel.TabIndex = 4
-        NombreLabel.Text = "Categoria:"
-        '
-        'IdClienteLabel
-        '
-        IdClienteLabel.AutoSize = True
-        IdClienteLabel.Location = New System.Drawing.Point(20, 25)
-        IdClienteLabel.Name = "IdClienteLabel"
-        IdClienteLabel.Size = New System.Drawing.Size(67, 13)
-        IdClienteLabel.TabIndex = 2
-        IdClienteLabel.Text = "Id Categoria:"
         '
         'FrmCategoria
         '
