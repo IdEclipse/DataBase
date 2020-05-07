@@ -73,6 +73,14 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CSE_DEPTDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CSE_DEPTDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CSE_DEPTDataSet.vb">
+      <DependentUpon>CSE_DEPTDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FrmFaculty.Designer.vb">
       <DependentUpon>FrmFaculty.vb</DependentUpon>
     </Compile>
@@ -144,6 +152,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="CSE_DEPTDataSet.xsc">
+      <DependentUpon>CSE_DEPTDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CSE_DEPTDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CSE_DEPTDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CSE_DEPTDataSet.xss">
+      <DependentUpon>CSE_DEPTDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
