@@ -36,18 +36,18 @@ Partial Class FrmNivel
         Me.GroupBoxDetalleVeta = New System.Windows.Forms.GroupBox()
         Me.NombreNivelTextBox = New System.Windows.Forms.TextBox()
         Me.NivelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DsMina = New CrudWizard.dsMina()
+        Me.ds = New CrudWizard.ds()
         Me.IdNivelTextBox = New System.Windows.Forms.TextBox()
         Me.NivelDataGridView = New System.Windows.Forms.DataGridView()
         Me.IdNivelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreNivelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NivelTableAdapter = New CrudWizard.dsMinaTableAdapters.NivelTableAdapter()
+        Me.NivelTableAdapter = New CrudWizard.dsTableAdapters.NivelTableAdapter()
         Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
         IdVetaLabel = New System.Windows.Forms.Label()
         NombreVetaLabel = New System.Windows.Forms.Label()
         Me.GroupBoxDetalleVeta.SuspendLayout()
         CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DsMina, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ds, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NivelDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -175,12 +175,12 @@ Partial Class FrmNivel
         'NivelBindingSource
         '
         Me.NivelBindingSource.DataMember = "Nivel"
-        Me.NivelBindingSource.DataSource = Me.DsMina
+        Me.NivelBindingSource.DataSource = Me.ds
         '
-        'DsMina
+        'ds
         '
-        Me.DsMina.DataSetName = "dsMina"
-        Me.DsMina.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.ds.DataSetName = "ds"
+        Me.ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'IdNivelTextBox
         '
@@ -248,7 +248,7 @@ Partial Class FrmNivel
         Me.GroupBoxDetalleVeta.ResumeLayout(False)
         Me.GroupBoxDetalleVeta.PerformLayout()
         CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DsMina, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ds, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NivelDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -267,9 +267,9 @@ Partial Class FrmNivel
     Friend WithEvents NombreNivelTextBox As TextBox
     Friend WithEvents IdNivelTextBox As TextBox
     Friend WithEvents NivelDataGridView As DataGridView
-    Friend WithEvents DsMina As dsMina
+    Friend WithEvents ds As ds
     Friend WithEvents NivelBindingSource As BindingSource
-    Friend WithEvents NivelTableAdapter As dsMinaTableAdapters.NivelTableAdapter
+    Friend WithEvents NivelTableAdapter As dsTableAdapters.NivelTableAdapter
     Friend WithEvents IdNivelDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NombreNivelDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ErrorProvider As ErrorProvider

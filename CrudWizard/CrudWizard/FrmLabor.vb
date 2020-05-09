@@ -2,11 +2,17 @@
     Dim Opcion As Integer = 0
     Dim posicion As Integer
     Private Sub FrmLabor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'DsMina.Labor' Puede moverla o quitarla según sea necesario.
-        Me.LaborTableAdapter.Fill(Me.DsMina.Labor)
-        'TODO: esta línea de código carga datos en la tabla 'DsMina.Nivel' Puede moverla o quitarla según sea necesario.
-
-        Me.LaborTableAdapter.Fill(Me.DsMina.Labor)
+        'TODO: esta línea de código carga datos en la tabla 'Ds.Orientacion' Puede moverla o quitarla según sea necesario.
+        Me.OrientacionTableAdapter.Fill(Me.Ds.Orientacion)
+        'TODO: esta línea de código carga datos en la tabla 'Ds.TipoLabor' Puede moverla o quitarla según sea necesario.
+        Me.TipoLaborTableAdapter.Fill(Me.Ds.TipoLabor)
+        'TODO: esta línea de código carga datos en la tabla 'Ds.Veta' Puede moverla o quitarla según sea necesario.
+        Me.VetaTableAdapter.Fill(Me.Ds.Veta)
+        'TODO: esta línea de código carga datos en la tabla 'Ds.Nivel' Puede moverla o quitarla según sea necesario.
+        Me.NivelTableAdapter.Fill(Me.Ds.Nivel)
+        'TODO: esta línea de código carga datos en la tabla 'Ds.Labor' Puede moverla o quitarla según sea necesario.
+        Me.LaborTableAdapter.Fill(Me.Ds.Labor)
+        'TODO: esta línea de código carga datos en la tabla 'Ds.Labor' Puede moverla o quitarla según sea necesario.
 
 
         GroupBoxDetalleVeta.Enabled = False
@@ -48,11 +54,11 @@
 
 
                 'Retiramos los capturadores de errores
-                ErrorProvider.SetError(NombreLaborTextBox, "")
+                ErrorProvider.SetError(UTMTextBox, "")
 
                 'Guardar posicion del elemento seleccionado
                 LaborDataGridView.Enabled = True        'Habilito el DGV
-                LaborBindingSource.ResumeBinding()      'Desatablesco el binding
+                LaborBindingSource.ResumeBinding()      'Restablesco el binding
                 LaborBindingSource.Position = posicion  'Restablesco posicion en el grid
 
 
@@ -61,7 +67,7 @@
 
                 'Guardar posicion del elemento seleccionado
                 LaborDataGridView.Enabled = True        'Habilito el DGV
-                LaborTableAdapter.Fill(DsMina.Labor)
+                LaborTableAdapter.Fill(Ds.Labor)
                 LaborBindingSource.Position = posicion
 
 
@@ -78,10 +84,11 @@
         If LaborDataGridView.RowCount > 0 Then
 
             If Respuesta = vbYes Then
-                LaborTableAdapter.DeleteQuery(IdLaborTextBox.Text)
+
+                LaborTableAdapter.LaborDeleteQuery(IdLaborTextBox.Text)
 
                 'Refrescar el DS
-                LaborTableAdapter.Fill(DsMina.Labor)
+                LaborTableAdapter.Fill(Ds.Labor)
                 LaborBindingSource.Position = posicion - 1
             Else
                 Exit Sub
@@ -101,12 +108,13 @@
                 If ValidarCaja() = True Then
                     Try
                         'LaborTableAdapter.InsertQuery(NombreLaborTextBox.Text.ToUpper, IdVetaComboBox.SelectedValue, IdNivelComboBox.SelectedValue, cboEstructura.SelectedValue)
-                        LaborTableAdapter.InsertQuery(NombreLaborTextBox.Text.ToUpper, IdVetaComboBox.SelectedValue, IdNivelComboBox.SelectedValue, cboEstructura.SelectedValue)
-                        Me.LaborTableAdapter.Fill(Me.DsMina.Labor)
+                        LaborTableAdapter.LaborInsertQuery(IdNivelComboBox.SelectedValue, IdVetaComboBox.SelectedValue, IdTipoLaborComboBox.SelectedValue, UTMTextBox.Text, IdOrientacionComboBox.SelectedValue)
+
+                        Me.LaborTableAdapter.Fill(Me.Ds.Labor)
                         MessageBox.Show("Registro guardado correctamente", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         DeshabilitaCajaTexto()
                         LaborBindingSource.ResumeBinding()  'Conectar el Binding
-                        LaborTableAdapter.Fill(DsMina.Labor)
+                        LaborTableAdapter.Fill(Ds.Labor)
                         LaborBindingSource.MoveLast()       'Movel al ultimo registro
                         LaborDataGridView.Enabled = True
                         AlternaBotones()
@@ -125,8 +133,9 @@
 
 
                 If ValidarCaja() = True Then
-                    LaborTableAdapter.UpdateQuery(NombreLaborTextBox.Text.ToUpper, IdVetaComboBox.SelectedValue, IdNivelComboBox.SelectedValue, cboEstructura.SelectedValue, IdLaborTextBox.Text)
-                    Me.LaborTableAdapter.Fill(Me.DsMina.Labor)
+                    LaborTableAdapter.LaborUpdateQuery(IdNivelComboBox.SelectedValue, IdVetaComboBox.SelectedValue, IdTipoLaborComboBox.SelectedValue, UTMTextBox.Text, IdOrientacionComboBox.SelectedValue, IdLaborTextBox.Text)
+
+                    Me.LaborTableAdapter.Fill(Me.Ds.Labor)
                     MessageBox.Show("Registro Actualizaco correctamente", "Actualizar", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     DeshabilitaCajaTexto()
                     LaborDataGridView.Enabled = True
@@ -163,9 +172,9 @@
     Private Sub HabilitaCajaTexto()
         Dim valor As Boolean = True
         IdLaborTextBox.Enabled = Not valor    'Autonumerico, siempre protegido
-        NombreLaborTextBox.Enabled = valor
+        UTMTextBox.Enabled = valor
         'Enfocar la caja de texto
-        NombreLaborTextBox.Focus()
+        UTMTextBox.Focus()
 
     End Sub
 
@@ -173,18 +182,18 @@
     Private Sub DeshabilitaCajaTexto()
         Dim valor As Boolean = False
         IdLaborTextBox.Enabled = valor    'Autonumerico, siempre protegido
-        NombreLaborTextBox.Enabled = valor
+        UTMTextBox.Enabled = valor
         'Enfocar la caja de texto
-        NombreLaborTextBox.Focus()
+        UTMTextBox.Focus()
     End Sub
 
     Function ValidarCaja() As Boolean
-        If NombreLaborTextBox.Text = "" Then
-            ErrorProvider.SetError(NombreLaborTextBox, "Ingrese Nombre")
+        If UTMTextBox.Text = "" Then
+            ErrorProvider.SetError(UTMTextBox, "Ingrese Nombre")
             Return False
 
         Else
-            ErrorProvider.SetError(NombreLaborTextBox, "")
+            ErrorProvider.SetError(UTMTextBox, "")
 
             Return True
         End If
@@ -203,7 +212,7 @@
     Private Sub LaborBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()
         Me.LaborBindingSource.EndEdit()
-        Me.TableAdapterManager.UpdateAll(Me.DsMina)
+        Me.TableAdapterManager.UpdateAll(Me.Ds)
 
     End Sub
 End Class

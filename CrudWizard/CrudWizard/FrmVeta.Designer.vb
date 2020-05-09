@@ -30,7 +30,7 @@ Partial Class FrmVeta
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VetaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DsMina = New CrudWizard.dsMina()
+        Me.ds = New CrudWizard.ds()
         Me.IdVetaTextBox = New System.Windows.Forms.TextBox()
         Me.NombreVetaTextBox = New System.Windows.Forms.TextBox()
         Me.GroupBoxDetalleVeta = New System.Windows.Forms.GroupBox()
@@ -42,13 +42,13 @@ Partial Class FrmVeta
         Me.btnGrabar = New System.Windows.Forms.Button()
         Me.lblMantenimientoVetas = New System.Windows.Forms.Label()
         Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.VetaTableAdapter = New CrudWizard.dsMinaTableAdapters.VetaTableAdapter()
-        Me.TableAdapterManager = New CrudWizard.dsMinaTableAdapters.TableAdapterManager()
+        Me.VetaTableAdapter = New CrudWizard.dsTableAdapters.VetaTableAdapter()
+        Me.TableAdapterManager = New CrudWizard.dsTableAdapters.TableAdapterManager()
         IdVetaLabel = New System.Windows.Forms.Label()
         NombreVetaLabel = New System.Windows.Forms.Label()
         CType(Me.VetaDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VetaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DsMina, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ds, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBoxDetalleVeta.SuspendLayout()
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -104,12 +104,12 @@ Partial Class FrmVeta
         'VetaBindingSource
         '
         Me.VetaBindingSource.DataMember = "Veta"
-        Me.VetaBindingSource.DataSource = Me.DsMina
+        Me.VetaBindingSource.DataSource = Me.ds
         '
-        'DsMina
+        'ds
         '
-        Me.DsMina.DataSetName = "dsMina"
-        Me.DsMina.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.ds.DataSetName = "ds"
+        Me.ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'IdVetaTextBox
         '
@@ -232,14 +232,14 @@ Partial Class FrmVeta
         '
         'TableAdapterManager
         '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.DetalleProgramaTableAdapter = Nothing
-        Me.TableAdapterManager.EjecutorTableAdapter = Nothing
-        Me.TableAdapterManager.LaborTableAdapter = Nothing
-        Me.TableAdapterManager.NivelTableAdapter = Nothing
-        Me.TableAdapterManager.ProgramaTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = CrudWizard.dsMinaTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.VetaTableAdapter = Me.VetaTableAdapter
+        'Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        'Me.TableAdapterManager.DetalleProgramaTableAdapter = Nothing
+        'Me.TableAdapterManager.EjecutorTableAdapter = Nothing
+        'Me.TableAdapterManager.LaborTableAdapter = Nothing
+        'Me.TableAdapterManager.NivelTableAdapter = Nothing
+        'Me.TableAdapterManager.ProgramaTableAdapter = Nothing
+        'Me.TableAdapterManager.UpdateOrder = CrudWizard.dsTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        'Me.TableAdapterManager.VetaTableAdapter = Me.VetaTableAdapter
         '
         'FrmVeta
         '
@@ -260,7 +260,7 @@ Partial Class FrmVeta
         Me.TopMost = True
         CType(Me.VetaDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VetaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DsMina, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ds, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBoxDetalleVeta.ResumeLayout(False)
         Me.GroupBoxDetalleVeta.PerformLayout()
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).EndInit()
@@ -269,10 +269,10 @@ Partial Class FrmVeta
 
     End Sub
 
-    Friend WithEvents DsMina As dsMina
+    Friend WithEvents ds As ds
     Friend WithEvents VetaBindingSource As BindingSource
-    Friend WithEvents VetaTableAdapter As dsMinaTableAdapters.VetaTableAdapter
-    Friend WithEvents TableAdapterManager As dsMinaTableAdapters.TableAdapterManager
+    Friend WithEvents VetaTableAdapter As dsTableAdapters.VetaTableAdapter
+    Friend WithEvents TableAdapterManager As dsTableAdapters.TableAdapterManager
     Friend WithEvents VetaDataGridView As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn

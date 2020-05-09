@@ -4,7 +4,7 @@
 
     Private Sub FrmVeta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'DsMina.Veta' Puede moverla o quitarla según sea necesario.
-        Me.VetaTableAdapter.Fill(Me.DsMina.Veta)
+        Me.VetaTableAdapter.Fill(Me.ds.Veta)
 
     End Sub
 
@@ -96,7 +96,7 @@
 
                 'Guardar posicion del elemento seleccionado
                 VetaDataGridView.Enabled = True        'Habilito el DGV
-                VetaTableAdapter.Fill(DsMina.Veta)
+                VetaTableAdapter.Fill(ds.Veta)
                 VetaBindingSource.Position = posicion
 
 
@@ -113,10 +113,10 @@
         If VetaDataGridView.RowCount > 0 Then
 
             If Respuesta = vbYes Then
-                VetaTableAdapter.DeleteQuery(IdVetaTextBox.Text)
+                'VetaTableAdapter.DeleteQuery(IdVetaTextBox.Text)
 
                 'Refrescar el DS
-                VetaTableAdapter.Fill(DsMina.Veta)
+                VetaTableAdapter.Fill(ds.Veta)
                 VetaBindingSource.Position = posicion - 1
             Else
                 Exit Sub
@@ -135,11 +135,11 @@
 
                 If ValidarCaja() = True Then
                     Try
-                        VetaTableAdapter.InsertQuery(NombreVetaTextBox.Text.ToUpper)
+                        'VetaTableAdapter.InsertQuery(NombreVetaTextBox.Text.ToUpper)
                         MessageBox.Show("Registro guardado correctamente", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         DeshabilitaCajaTexto()
                         VetaBindingSource.ResumeBinding()  'Conectar el Binding
-                        VetaTableAdapter.Fill(DsMina.Veta)
+                        VetaTableAdapter.Fill(ds.Veta)
                         VetaBindingSource.MoveLast()       'Movel al ultimo registro
                         VetaDataGridView.Enabled = True
                         AlternaBotones()
@@ -158,7 +158,7 @@
 
 
                 If ValidarCaja() = True Then
-                    VetaTableAdapter.UpdateQuery(NombreVetaTextBox.Text.ToUpper, IdVetaTextBox.Text)
+                    'VetaTableAdapter.UpdateQuery(NombreVetaTextBox.Text.ToUpper, IdVetaTextBox.Text)
                     MessageBox.Show("Registro Actualizaco correctamente", "Actualizar", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     DeshabilitaCajaTexto()
                     VetaDataGridView.Enabled = True
