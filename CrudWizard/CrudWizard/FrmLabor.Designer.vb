@@ -37,10 +37,14 @@ Partial Class FrmLabor
         Me.IdTipoLaborComboBox = New System.Windows.Forms.ComboBox()
         Me.LaborBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Ds = New CrudWizard.ds()
+        Me.TipoLaborBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IdOrientacionComboBox = New System.Windows.Forms.ComboBox()
+        Me.OrientacionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.UTMTextBox = New System.Windows.Forms.TextBox()
         Me.IdVetaComboBox = New System.Windows.Forms.ComboBox()
+        Me.VetaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IdNivelComboBox = New System.Windows.Forms.ComboBox()
+        Me.NivelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IdLaborTextBox = New System.Windows.Forms.TextBox()
         Me.LaborDataGridView = New System.Windows.Forms.DataGridView()
         Me.btnGrabar = New System.Windows.Forms.Button()
@@ -52,13 +56,9 @@ Partial Class FrmLabor
         Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.LaborTableAdapter = New CrudWizard.dsTableAdapters.LaborTableAdapter()
         Me.TableAdapterManager = New CrudWizard.dsTableAdapters.TableAdapterManager()
-        Me.NivelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.NivelTableAdapter = New CrudWizard.dsTableAdapters.NivelTableAdapter()
-        Me.VetaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VetaTableAdapter = New CrudWizard.dsTableAdapters.VetaTableAdapter()
-        Me.TipoLaborBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TipoLaborTableAdapter = New CrudWizard.dsTableAdapters.TipoLaborTableAdapter()
-        Me.OrientacionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.OrientacionTableAdapter = New CrudWizard.dsTableAdapters.OrientacionTableAdapter()
         Me.IdLaborDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdNivelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
@@ -76,12 +76,12 @@ Partial Class FrmLabor
         Me.GroupBoxDetalleVeta.SuspendLayout()
         CType(Me.LaborBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Ds, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LaborDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.VetaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TipoLaborBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OrientacionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VetaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LaborDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -160,7 +160,7 @@ Partial Class FrmLabor
         'btnSalir
         '
         Me.btnSalir.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSalir.Location = New System.Drawing.Point(602, 394)
+        Me.btnSalir.Location = New System.Drawing.Point(598, 394)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(126, 44)
         Me.btnSalir.TabIndex = 10
@@ -193,6 +193,7 @@ Partial Class FrmLabor
         Me.IdTipoLaborComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.LaborBindingSource, "IdTipoLabor", True))
         Me.IdTipoLaborComboBox.DataSource = Me.TipoLaborBindingSource
         Me.IdTipoLaborComboBox.DisplayMember = "NombreTipoLabor"
+        Me.IdTipoLaborComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.IdTipoLaborComboBox.FormattingEnabled = True
         Me.IdTipoLaborComboBox.Location = New System.Drawing.Point(337, 66)
         Me.IdTipoLaborComboBox.Name = "IdTipoLaborComboBox"
@@ -210,17 +211,28 @@ Partial Class FrmLabor
         Me.Ds.DataSetName = "ds"
         Me.Ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'TipoLaborBindingSource
+        '
+        Me.TipoLaborBindingSource.DataMember = "TipoLabor"
+        Me.TipoLaborBindingSource.DataSource = Me.Ds
+        '
         'IdOrientacionComboBox
         '
         Me.IdOrientacionComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.LaborBindingSource, "IdOrientacion", True))
         Me.IdOrientacionComboBox.DataSource = Me.OrientacionBindingSource
         Me.IdOrientacionComboBox.DisplayMember = "NombreOrientacion"
+        Me.IdOrientacionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.IdOrientacionComboBox.FormattingEnabled = True
         Me.IdOrientacionComboBox.Location = New System.Drawing.Point(579, 63)
         Me.IdOrientacionComboBox.Name = "IdOrientacionComboBox"
         Me.IdOrientacionComboBox.Size = New System.Drawing.Size(100, 21)
         Me.IdOrientacionComboBox.TabIndex = 11
         Me.IdOrientacionComboBox.ValueMember = "IdOrientacion"
+        '
+        'OrientacionBindingSource
+        '
+        Me.OrientacionBindingSource.DataMember = "Orientacion"
+        Me.OrientacionBindingSource.DataSource = Me.Ds
         '
         'UTMTextBox
         '
@@ -235,6 +247,7 @@ Partial Class FrmLabor
         Me.IdVetaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.LaborBindingSource, "IdVeta", True))
         Me.IdVetaComboBox.DataSource = Me.VetaBindingSource
         Me.IdVetaComboBox.DisplayMember = "NombreVeta"
+        Me.IdVetaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.IdVetaComboBox.FormattingEnabled = True
         Me.IdVetaComboBox.Location = New System.Drawing.Point(337, 28)
         Me.IdVetaComboBox.Name = "IdVetaComboBox"
@@ -242,17 +255,28 @@ Partial Class FrmLabor
         Me.IdVetaComboBox.TabIndex = 5
         Me.IdVetaComboBox.ValueMember = "IdVeta"
         '
+        'VetaBindingSource
+        '
+        Me.VetaBindingSource.DataMember = "Veta"
+        Me.VetaBindingSource.DataSource = Me.Ds
+        '
         'IdNivelComboBox
         '
         Me.IdNivelComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.LaborBindingSource, "IdNivel", True))
         Me.IdNivelComboBox.DataSource = Me.NivelBindingSource
         Me.IdNivelComboBox.DisplayMember = "NombreNivel"
+        Me.IdNivelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.IdNivelComboBox.FormattingEnabled = True
         Me.IdNivelComboBox.Location = New System.Drawing.Point(88, 66)
         Me.IdNivelComboBox.Name = "IdNivelComboBox"
         Me.IdNivelComboBox.Size = New System.Drawing.Size(88, 21)
         Me.IdNivelComboBox.TabIndex = 3
         Me.IdNivelComboBox.ValueMember = "IdNivel"
+        '
+        'NivelBindingSource
+        '
+        Me.NivelBindingSource.DataMember = "Nivel"
+        Me.NivelBindingSource.DataSource = Me.Ds
         '
         'IdLaborTextBox
         '
@@ -363,37 +387,17 @@ Partial Class FrmLabor
         Me.TableAdapterManager.UpdateOrder = CrudWizard.dsTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.VetaTableAdapter = Nothing
         '
-        'NivelBindingSource
-        '
-        Me.NivelBindingSource.DataMember = "Nivel"
-        Me.NivelBindingSource.DataSource = Me.Ds
-        '
         'NivelTableAdapter
         '
         Me.NivelTableAdapter.ClearBeforeFill = True
-        '
-        'VetaBindingSource
-        '
-        Me.VetaBindingSource.DataMember = "Veta"
-        Me.VetaBindingSource.DataSource = Me.Ds
         '
         'VetaTableAdapter
         '
         Me.VetaTableAdapter.ClearBeforeFill = True
         '
-        'TipoLaborBindingSource
-        '
-        Me.TipoLaborBindingSource.DataMember = "TipoLabor"
-        Me.TipoLaborBindingSource.DataSource = Me.Ds
-        '
         'TipoLaborTableAdapter
         '
         Me.TipoLaborTableAdapter.ClearBeforeFill = True
-        '
-        'OrientacionBindingSource
-        '
-        Me.OrientacionBindingSource.DataMember = "Orientacion"
-        Me.OrientacionBindingSource.DataSource = Me.Ds
         '
         'OrientacionTableAdapter
         '
@@ -470,7 +474,7 @@ Partial Class FrmLabor
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(739, 450)
+        Me.ClientSize = New System.Drawing.Size(735, 450)
         Me.Controls.Add(Me.lblMantenimientoVetas)
         Me.Controls.Add(Me.btnGrabar)
         Me.Controls.Add(Me.btnEliminar)
@@ -488,12 +492,12 @@ Partial Class FrmLabor
         Me.GroupBoxDetalleVeta.PerformLayout()
         CType(Me.LaborBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Ds, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LaborDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.VetaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TipoLaborBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OrientacionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VetaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LaborDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

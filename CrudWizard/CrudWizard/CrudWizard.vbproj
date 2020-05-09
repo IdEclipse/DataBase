@@ -79,6 +79,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ds.vb">
+      <DependentUpon>ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FrmLabor.Designer.vb">
       <DependentUpon>FrmLabor.vb</DependentUpon>
     </Compile>

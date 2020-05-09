@@ -2,7 +2,7 @@
 <xs:schema id="ds" targetNamespace="http://tempuri.org/ds.xsd" xmlns:mstns="http://tempuri.org/ds.xsd" xmlns="http://tempuri.org/ds.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="dbMinaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="dbMinaConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CrudWizard.My.MySettings.GlobalReference.Default.dbMinaConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
@@ -316,6 +316,28 @@ SELECT IdLabor, IdNivel, IdVeta, IdTipoLabor, UTM, IdOrientacion FROM Labor WHER
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Mostrar_LaborTableAdapter" GeneratorDataComponentClassName="Mostrar_LaborTableAdapter" Name="Mostrar_Labor" UserDataComponentName="Mostrar_LaborTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dbMinaConnectionString (MySettings)" DbObjectName="dbMina.dbo.Mostrar_Labor" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IdLabor, NombreNivel, NombreVeta, NombreTipoLabor, UTM, NombreOrientacion, Codigo FROM dbo.Mostrar_Labor</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdLabor" DataSetColumn="IdLabor" />
+              <Mapping SourceColumn="NombreNivel" DataSetColumn="NombreNivel" />
+              <Mapping SourceColumn="NombreVeta" DataSetColumn="NombreVeta" />
+              <Mapping SourceColumn="NombreTipoLabor" DataSetColumn="NombreTipoLabor" />
+              <Mapping SourceColumn="UTM" DataSetColumn="UTM" />
+              <Mapping SourceColumn="NombreOrientacion" DataSetColumn="NombreOrientacion" />
+              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -324,7 +346,7 @@ SELECT IdLabor, IdNivel, IdVeta, IdTipoLabor, UTM, IdOrientacion FROM Labor WHER
   <xs:element name="ds" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds" msprop:Generator_UserDSName="ds">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Veta" msprop:Generator_TableClassName="VetaDataTable" msprop:Generator_TableVarName="tableVeta" msprop:Generator_RowChangedName="VetaRowChanged" msprop:Generator_TablePropName="Veta" msprop:Generator_RowDeletingName="VetaRowDeleting" msprop:Generator_RowChangingName="VetaRowChanging" msprop:Generator_RowEvHandlerName="VetaRowChangeEventHandler" msprop:Generator_RowDeletedName="VetaRowDeleted" msprop:Generator_RowClassName="VetaRow" msprop:Generator_UserTableName="Veta" msprop:Generator_RowEvArgName="VetaRowChangeEvent">
+        <xs:element name="Veta" msprop:Generator_TableClassName="VetaDataTable" msprop:Generator_TableVarName="tableVeta" msprop:Generator_TablePropName="Veta" msprop:Generator_RowDeletingName="VetaRowDeleting" msprop:Generator_RowChangingName="VetaRowChanging" msprop:Generator_RowEvHandlerName="VetaRowChangeEventHandler" msprop:Generator_RowDeletedName="VetaRowDeleted" msprop:Generator_UserTableName="Veta" msprop:Generator_RowChangedName="VetaRowChanged" msprop:Generator_RowEvArgName="VetaRowChangeEvent" msprop:Generator_RowClassName="VetaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdVeta" msprop:Generator_ColumnVarNameInTable="columnIdVeta" msprop:Generator_ColumnPropNameInRow="IdVeta" msprop:Generator_ColumnPropNameInTable="IdVetaColumn" msprop:Generator_UserColumnName="IdVeta" type="xs:int" />
@@ -338,7 +360,7 @@ SELECT IdLabor, IdNivel, IdVeta, IdTipoLabor, UTM, IdOrientacion FROM Labor WHER
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TipoLabor" msprop:Generator_TableClassName="TipoLaborDataTable" msprop:Generator_TableVarName="tableTipoLabor" msprop:Generator_RowChangedName="TipoLaborRowChanged" msprop:Generator_TablePropName="TipoLabor" msprop:Generator_RowDeletingName="TipoLaborRowDeleting" msprop:Generator_RowChangingName="TipoLaborRowChanging" msprop:Generator_RowEvHandlerName="TipoLaborRowChangeEventHandler" msprop:Generator_RowDeletedName="TipoLaborRowDeleted" msprop:Generator_RowClassName="TipoLaborRow" msprop:Generator_UserTableName="TipoLabor" msprop:Generator_RowEvArgName="TipoLaborRowChangeEvent">
+        <xs:element name="TipoLabor" msprop:Generator_TableClassName="TipoLaborDataTable" msprop:Generator_TableVarName="tableTipoLabor" msprop:Generator_TablePropName="TipoLabor" msprop:Generator_RowDeletingName="TipoLaborRowDeleting" msprop:Generator_RowChangingName="TipoLaborRowChanging" msprop:Generator_RowEvHandlerName="TipoLaborRowChangeEventHandler" msprop:Generator_RowDeletedName="TipoLaborRowDeleted" msprop:Generator_UserTableName="TipoLabor" msprop:Generator_RowChangedName="TipoLaborRowChanged" msprop:Generator_RowEvArgName="TipoLaborRowChangeEvent" msprop:Generator_RowClassName="TipoLaborRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdTipoLabor" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdTipoLabor" msprop:Generator_ColumnPropNameInRow="IdTipoLabor" msprop:Generator_ColumnPropNameInTable="IdTipoLaborColumn" msprop:Generator_UserColumnName="IdTipoLabor" type="xs:int" />
@@ -352,7 +374,7 @@ SELECT IdLabor, IdNivel, IdVeta, IdTipoLabor, UTM, IdOrientacion FROM Labor WHER
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Orientacion" msprop:Generator_TableClassName="OrientacionDataTable" msprop:Generator_TableVarName="tableOrientacion" msprop:Generator_RowChangedName="OrientacionRowChanged" msprop:Generator_TablePropName="Orientacion" msprop:Generator_RowDeletingName="OrientacionRowDeleting" msprop:Generator_RowChangingName="OrientacionRowChanging" msprop:Generator_RowEvHandlerName="OrientacionRowChangeEventHandler" msprop:Generator_RowDeletedName="OrientacionRowDeleted" msprop:Generator_RowClassName="OrientacionRow" msprop:Generator_UserTableName="Orientacion" msprop:Generator_RowEvArgName="OrientacionRowChangeEvent">
+        <xs:element name="Orientacion" msprop:Generator_TableClassName="OrientacionDataTable" msprop:Generator_TableVarName="tableOrientacion" msprop:Generator_TablePropName="Orientacion" msprop:Generator_RowDeletingName="OrientacionRowDeleting" msprop:Generator_RowChangingName="OrientacionRowChanging" msprop:Generator_RowEvHandlerName="OrientacionRowChangeEventHandler" msprop:Generator_RowDeletedName="OrientacionRowDeleted" msprop:Generator_UserTableName="Orientacion" msprop:Generator_RowChangedName="OrientacionRowChanged" msprop:Generator_RowEvArgName="OrientacionRowChangeEvent" msprop:Generator_RowClassName="OrientacionRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdOrientacion" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdOrientacion" msprop:Generator_ColumnPropNameInRow="IdOrientacion" msprop:Generator_ColumnPropNameInTable="IdOrientacionColumn" msprop:Generator_UserColumnName="IdOrientacion" type="xs:int" />
@@ -366,7 +388,7 @@ SELECT IdLabor, IdNivel, IdVeta, IdTipoLabor, UTM, IdOrientacion FROM Labor WHER
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Nivel" msprop:Generator_TableClassName="NivelDataTable" msprop:Generator_TableVarName="tableNivel" msprop:Generator_RowChangedName="NivelRowChanged" msprop:Generator_TablePropName="Nivel" msprop:Generator_RowDeletingName="NivelRowDeleting" msprop:Generator_RowChangingName="NivelRowChanging" msprop:Generator_RowEvHandlerName="NivelRowChangeEventHandler" msprop:Generator_RowDeletedName="NivelRowDeleted" msprop:Generator_RowClassName="NivelRow" msprop:Generator_UserTableName="Nivel" msprop:Generator_RowEvArgName="NivelRowChangeEvent">
+        <xs:element name="Nivel" msprop:Generator_TableClassName="NivelDataTable" msprop:Generator_TableVarName="tableNivel" msprop:Generator_TablePropName="Nivel" msprop:Generator_RowDeletingName="NivelRowDeleting" msprop:Generator_RowChangingName="NivelRowChanging" msprop:Generator_RowEvHandlerName="NivelRowChangeEventHandler" msprop:Generator_RowDeletedName="NivelRowDeleted" msprop:Generator_UserTableName="Nivel" msprop:Generator_RowChangedName="NivelRowChanged" msprop:Generator_RowEvArgName="NivelRowChangeEvent" msprop:Generator_RowClassName="NivelRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdNivel" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdNivel" msprop:Generator_ColumnPropNameInRow="IdNivel" msprop:Generator_ColumnPropNameInTable="IdNivelColumn" msprop:Generator_UserColumnName="IdNivel" type="xs:int" />
@@ -380,7 +402,7 @@ SELECT IdLabor, IdNivel, IdVeta, IdTipoLabor, UTM, IdOrientacion FROM Labor WHER
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Labor" msprop:Generator_TableClassName="LaborDataTable" msprop:Generator_TableVarName="tableLabor" msprop:Generator_RowChangedName="LaborRowChanged" msprop:Generator_TablePropName="Labor" msprop:Generator_RowDeletingName="LaborRowDeleting" msprop:Generator_RowChangingName="LaborRowChanging" msprop:Generator_RowEvHandlerName="LaborRowChangeEventHandler" msprop:Generator_RowDeletedName="LaborRowDeleted" msprop:Generator_RowClassName="LaborRow" msprop:Generator_UserTableName="Labor" msprop:Generator_RowEvArgName="LaborRowChangeEvent">
+        <xs:element name="Labor" msprop:Generator_TableClassName="LaborDataTable" msprop:Generator_TableVarName="tableLabor" msprop:Generator_TablePropName="Labor" msprop:Generator_RowDeletingName="LaborRowDeleting" msprop:Generator_RowChangingName="LaborRowChanging" msprop:Generator_RowEvHandlerName="LaborRowChangeEventHandler" msprop:Generator_RowDeletedName="LaborRowDeleted" msprop:Generator_UserTableName="Labor" msprop:Generator_RowChangedName="LaborRowChanged" msprop:Generator_RowEvArgName="LaborRowChangeEvent" msprop:Generator_RowClassName="LaborRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdLabor" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdLabor" msprop:Generator_ColumnPropNameInRow="IdLabor" msprop:Generator_ColumnPropNameInTable="IdLaborColumn" msprop:Generator_UserColumnName="IdLabor" type="xs:int" />
@@ -395,6 +417,55 @@ SELECT IdLabor, IdNivel, IdVeta, IdTipoLabor, UTM, IdOrientacion FROM Labor WHER
                 </xs:simpleType>
               </xs:element>
               <xs:element name="IdOrientacion" msprop:Generator_ColumnVarNameInTable="columnIdOrientacion" msprop:Generator_ColumnPropNameInRow="IdOrientacion" msprop:Generator_ColumnPropNameInTable="IdOrientacionColumn" msprop:Generator_UserColumnName="IdOrientacion" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Mostrar_Labor" msprop:Generator_TableClassName="Mostrar_LaborDataTable" msprop:Generator_TableVarName="tableMostrar_Labor" msprop:Generator_TablePropName="Mostrar_Labor" msprop:Generator_RowDeletingName="Mostrar_LaborRowDeleting" msprop:Generator_RowChangingName="Mostrar_LaborRowChanging" msprop:Generator_RowEvHandlerName="Mostrar_LaborRowChangeEventHandler" msprop:Generator_RowDeletedName="Mostrar_LaborRowDeleted" msprop:Generator_UserTableName="Mostrar_Labor" msprop:Generator_RowChangedName="Mostrar_LaborRowChanged" msprop:Generator_RowEvArgName="Mostrar_LaborRowChangeEvent" msprop:Generator_RowClassName="Mostrar_LaborRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdLabor" msprop:Generator_ColumnVarNameInTable="columnIdLabor" msprop:Generator_ColumnPropNameInRow="IdLabor" msprop:Generator_ColumnPropNameInTable="IdLaborColumn" msprop:Generator_UserColumnName="IdLabor" type="xs:int" />
+              <xs:element name="NombreNivel" msprop:Generator_ColumnVarNameInTable="columnNombreNivel" msprop:Generator_ColumnPropNameInRow="NombreNivel" msprop:Generator_ColumnPropNameInTable="NombreNivelColumn" msprop:Generator_UserColumnName="NombreNivel">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NombreVeta" msprop:Generator_ColumnVarNameInTable="columnNombreVeta" msprop:Generator_ColumnPropNameInRow="NombreVeta" msprop:Generator_ColumnPropNameInTable="NombreVetaColumn" msprop:Generator_UserColumnName="NombreVeta">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NombreTipoLabor" msprop:Generator_ColumnVarNameInTable="columnNombreTipoLabor" msprop:Generator_ColumnPropNameInRow="NombreTipoLabor" msprop:Generator_ColumnPropNameInTable="NombreTipoLaborColumn" msprop:Generator_UserColumnName="NombreTipoLabor">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UTM" msprop:Generator_ColumnVarNameInTable="columnUTM" msprop:Generator_ColumnPropNameInRow="UTM" msprop:Generator_ColumnPropNameInTable="UTMColumn" msprop:Generator_UserColumnName="UTM">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NombreOrientacion" msprop:Generator_ColumnVarNameInTable="columnNombreOrientacion" msprop:Generator_ColumnPropNameInRow="NombreOrientacion" msprop:Generator_ColumnPropNameInTable="NombreOrientacionColumn" msprop:Generator_UserColumnName="NombreOrientacion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Codigo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -420,13 +491,17 @@ SELECT IdLabor, IdNivel, IdVeta, IdTipoLabor, UTM, IdOrientacion FROM Labor WHER
       <xs:selector xpath=".//mstns:Labor" />
       <xs:field xpath="mstns:IdLabor" />
     </xs:unique>
+    <xs:unique name="Mostrar_Labor_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Mostrar_Labor" />
+      <xs:field xpath="mstns:IdLabor" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK__Labor__IdNivel__300424B4" msdata:parent="Nivel" msdata:child="Labor" msdata:parentkey="IdNivel" msdata:childkey="IdNivel" msprop:Generator_UserChildTable="Labor" msprop:Generator_ChildPropName="GetLaborRows" msprop:Generator_UserRelationName="FK__Labor__IdNivel__300424B4" msprop:Generator_RelationVarName="relationFK__Labor__IdNivel__300424B4" msprop:Generator_UserParentTable="Nivel" msprop:Generator_ParentPropName="NivelRow" />
-      <msdata:Relationship name="FK__Labor__IdOrienta__32E0915F" msdata:parent="Orientacion" msdata:child="Labor" msdata:parentkey="IdOrientacion" msdata:childkey="IdOrientacion" msprop:Generator_UserChildTable="Labor" msprop:Generator_ChildPropName="GetLaborRows" msprop:Generator_UserRelationName="FK__Labor__IdOrienta__32E0915F" msprop:Generator_RelationVarName="relationFK__Labor__IdOrienta__32E0915F" msprop:Generator_UserParentTable="Orientacion" msprop:Generator_ParentPropName="OrientacionRow" />
-      <msdata:Relationship name="FK__Labor__IdTipoLab__31EC6D26" msdata:parent="TipoLabor" msdata:child="Labor" msdata:parentkey="IdTipoLabor" msdata:childkey="IdTipoLabor" msprop:Generator_UserChildTable="Labor" msprop:Generator_ChildPropName="GetLaborRows" msprop:Generator_UserRelationName="FK__Labor__IdTipoLab__31EC6D26" msprop:Generator_RelationVarName="relationFK__Labor__IdTipoLab__31EC6D26" msprop:Generator_UserParentTable="TipoLabor" msprop:Generator_ParentPropName="TipoLaborRow" />
-      <msdata:Relationship name="FK__Labor__IdVeta__30F848ED" msdata:parent="Veta" msdata:child="Labor" msdata:parentkey="IdVeta" msdata:childkey="IdVeta" msprop:Generator_UserChildTable="Labor" msprop:Generator_ChildPropName="GetLaborRows" msprop:Generator_UserRelationName="FK__Labor__IdVeta__30F848ED" msprop:Generator_RelationVarName="relationFK__Labor__IdVeta__30F848ED" msprop:Generator_UserParentTable="Veta" msprop:Generator_ParentPropName="VetaRow" />
+      <msdata:Relationship name="FK__Labor__IdNivel__300424B4" msdata:parent="Nivel" msdata:child="Labor" msdata:parentkey="IdNivel" msdata:childkey="IdNivel" msprop:Generator_UserChildTable="Labor" msprop:Generator_ChildPropName="GetLaborRows" msprop:Generator_UserRelationName="FK__Labor__IdNivel__300424B4" msprop:Generator_ParentPropName="NivelRow" msprop:Generator_RelationVarName="relationFK__Labor__IdNivel__300424B4" msprop:Generator_UserParentTable="Nivel" />
+      <msdata:Relationship name="FK__Labor__IdOrienta__32E0915F" msdata:parent="Orientacion" msdata:child="Labor" msdata:parentkey="IdOrientacion" msdata:childkey="IdOrientacion" msprop:Generator_UserChildTable="Labor" msprop:Generator_ChildPropName="GetLaborRows" msprop:Generator_UserRelationName="FK__Labor__IdOrienta__32E0915F" msprop:Generator_ParentPropName="OrientacionRow" msprop:Generator_RelationVarName="relationFK__Labor__IdOrienta__32E0915F" msprop:Generator_UserParentTable="Orientacion" />
+      <msdata:Relationship name="FK__Labor__IdTipoLab__31EC6D26" msdata:parent="TipoLabor" msdata:child="Labor" msdata:parentkey="IdTipoLabor" msdata:childkey="IdTipoLabor" msprop:Generator_UserChildTable="Labor" msprop:Generator_ChildPropName="GetLaborRows" msprop:Generator_UserRelationName="FK__Labor__IdTipoLab__31EC6D26" msprop:Generator_ParentPropName="TipoLaborRow" msprop:Generator_RelationVarName="relationFK__Labor__IdTipoLab__31EC6D26" msprop:Generator_UserParentTable="TipoLabor" />
+      <msdata:Relationship name="FK__Labor__IdVeta__30F848ED" msdata:parent="Veta" msdata:child="Labor" msdata:parentkey="IdVeta" msdata:childkey="IdVeta" msprop:Generator_UserChildTable="Labor" msprop:Generator_ChildPropName="GetLaborRows" msprop:Generator_UserRelationName="FK__Labor__IdVeta__30F848ED" msprop:Generator_ParentPropName="VetaRow" msprop:Generator_RelationVarName="relationFK__Labor__IdVeta__30F848ED" msprop:Generator_UserParentTable="Veta" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
