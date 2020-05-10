@@ -23,7 +23,6 @@ Partial Class FrmLabor
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim Label1 As System.Windows.Forms.Label
         Dim IdLaborLabel As System.Windows.Forms.Label
         Dim IdNivelLabel As System.Windows.Forms.Label
         Dim IdVetaLabel As System.Windows.Forms.Label
@@ -47,12 +46,17 @@ Partial Class FrmLabor
         Me.NivelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IdLaborTextBox = New System.Windows.Forms.TextBox()
         Me.LaborDataGridView = New System.Windows.Forms.DataGridView()
+        Me.IdLaborDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdNivelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.IdVetaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.IdTipoLaborDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.UTMDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdOrientacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.btnGrabar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.btnEditar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.LaborTableAdapter = New CrudWizard.dsTableAdapters.LaborTableAdapter()
         Me.TableAdapterManager = New CrudWizard.dsTableAdapters.TableAdapterManager()
@@ -60,13 +64,7 @@ Partial Class FrmLabor
         Me.VetaTableAdapter = New CrudWizard.dsTableAdapters.VetaTableAdapter()
         Me.TipoLaborTableAdapter = New CrudWizard.dsTableAdapters.TipoLaborTableAdapter()
         Me.OrientacionTableAdapter = New CrudWizard.dsTableAdapters.OrientacionTableAdapter()
-        Me.IdLaborDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdNivelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.IdVetaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.IdTipoLaborDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.UTMDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdOrientacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Label1 = New System.Windows.Forms.Label()
+        Me.btnBuscar = New System.Windows.Forms.Button()
         IdLaborLabel = New System.Windows.Forms.Label()
         IdNivelLabel = New System.Windows.Forms.Label()
         IdVetaLabel = New System.Windows.Forms.Label()
@@ -83,15 +81,6 @@ Partial Class FrmLabor
         CType(Me.LaborDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Label1
-        '
-        Label1.AutoSize = True
-        Label1.Location = New System.Drawing.Point(470, 15)
-        Label1.Name = "Label1"
-        Label1.Size = New System.Drawing.Size(37, 13)
-        Label1.TabIndex = 1
-        Label1.Text = "Labor:"
         '
         'IdLaborLabel
         '
@@ -144,26 +133,27 @@ Partial Class FrmLabor
         IdTipoLaborLabel1.Location = New System.Drawing.Point(258, 69)
         IdTipoLaborLabel1.Name = "IdTipoLaborLabel1"
         IdTipoLaborLabel1.Size = New System.Drawing.Size(73, 13)
-        IdTipoLaborLabel1.TabIndex = 11
+        IdTipoLaborLabel1.TabIndex = 6
         IdTipoLaborLabel1.Text = "Id Tipo Labor:"
         '
         'lblMantenimientoVetas
         '
         Me.lblMantenimientoVetas.AutoSize = True
-        Me.lblMantenimientoVetas.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMantenimientoVetas.Font = New System.Drawing.Font("Tahoma", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMantenimientoVetas.ForeColor = System.Drawing.Color.Gray
         Me.lblMantenimientoVetas.Location = New System.Drawing.Point(12, 9)
         Me.lblMantenimientoVetas.Name = "lblMantenimientoVetas"
-        Me.lblMantenimientoVetas.Size = New System.Drawing.Size(176, 20)
+        Me.lblMantenimientoVetas.Size = New System.Drawing.Size(235, 23)
         Me.lblMantenimientoVetas.TabIndex = 0
         Me.lblMantenimientoVetas.Text = "Mantenimiento Labores"
         '
         'btnSalir
         '
         Me.btnSalir.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSalir.Location = New System.Drawing.Point(598, 394)
+        Me.btnSalir.Location = New System.Drawing.Point(621, 394)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(126, 44)
-        Me.btnSalir.TabIndex = 10
+        Me.btnSalir.Size = New System.Drawing.Size(106, 44)
+        Me.btnSalir.TabIndex = 8
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
@@ -184,7 +174,7 @@ Partial Class FrmLabor
         Me.GroupBoxDetalleVeta.Location = New System.Drawing.Point(12, 288)
         Me.GroupBoxDetalleVeta.Name = "GroupBoxDetalleVeta"
         Me.GroupBoxDetalleVeta.Size = New System.Drawing.Size(715, 100)
-        Me.GroupBoxDetalleVeta.TabIndex = 4
+        Me.GroupBoxDetalleVeta.TabIndex = 2
         Me.GroupBoxDetalleVeta.TabStop = False
         Me.GroupBoxDetalleVeta.Text = "DetalleVeta"
         '
@@ -198,7 +188,7 @@ Partial Class FrmLabor
         Me.IdTipoLaborComboBox.Location = New System.Drawing.Point(337, 66)
         Me.IdTipoLaborComboBox.Name = "IdTipoLaborComboBox"
         Me.IdTipoLaborComboBox.Size = New System.Drawing.Size(100, 21)
-        Me.IdTipoLaborComboBox.TabIndex = 12
+        Me.IdTipoLaborComboBox.TabIndex = 7
         Me.IdTipoLaborComboBox.ValueMember = "IdTipoLabor"
         '
         'LaborBindingSource
@@ -300,108 +290,7 @@ Partial Class FrmLabor
         Me.LaborDataGridView.ReadOnly = True
         Me.LaborDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.LaborDataGridView.Size = New System.Drawing.Size(715, 238)
-        Me.LaborDataGridView.TabIndex = 3
-        '
-        'btnGrabar
-        '
-        Me.btnGrabar.Image = CType(resources.GetObject("btnGrabar.Image"), System.Drawing.Image)
-        Me.btnGrabar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGrabar.Location = New System.Drawing.Point(425, 394)
-        Me.btnGrabar.Name = "btnGrabar"
-        Me.btnGrabar.Size = New System.Drawing.Size(92, 44)
-        Me.btnGrabar.TabIndex = 9
-        Me.btnGrabar.Text = "Grabar"
-        Me.btnGrabar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnGrabar.UseVisualStyleBackColor = True
-        '
-        'btnEliminar
-        '
-        Me.btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), System.Drawing.Image)
-        Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminar.Location = New System.Drawing.Point(325, 394)
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(92, 44)
-        Me.btnEliminar.TabIndex = 8
-        Me.btnEliminar.Text = "Eliminar"
-        Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnEliminar.UseVisualStyleBackColor = True
-        '
-        'btnCancelar
-        '
-        Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
-        Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelar.Location = New System.Drawing.Point(212, 394)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(92, 44)
-        Me.btnCancelar.TabIndex = 7
-        Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnCancelar.UseVisualStyleBackColor = True
-        '
-        'btnEditar
-        '
-        Me.btnEditar.Image = CType(resources.GetObject("btnEditar.Image"), System.Drawing.Image)
-        Me.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEditar.Location = New System.Drawing.Point(112, 394)
-        Me.btnEditar.Name = "btnEditar"
-        Me.btnEditar.Size = New System.Drawing.Size(92, 44)
-        Me.btnEditar.TabIndex = 6
-        Me.btnEditar.Text = "Editar"
-        Me.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnEditar.UseVisualStyleBackColor = True
-        '
-        'btnNuevo
-        '
-        Me.btnNuevo.Image = CType(resources.GetObject("btnNuevo.Image"), System.Drawing.Image)
-        Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNuevo.Location = New System.Drawing.Point(12, 394)
-        Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(92, 44)
-        Me.btnNuevo.TabIndex = 5
-        Me.btnNuevo.Text = "Nuevo"
-        Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnNuevo.UseVisualStyleBackColor = True
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(513, 12)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(214, 20)
-        Me.TextBox1.TabIndex = 2
-        '
-        'ErrorProvider
-        '
-        Me.ErrorProvider.ContainerControl = Me
-        '
-        'LaborTableAdapter
-        '
-        Me.LaborTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.LaborTableAdapter = Me.LaborTableAdapter
-        Me.TableAdapterManager.NivelTableAdapter = Nothing
-        Me.TableAdapterManager.OrientacionTableAdapter = Nothing
-        Me.TableAdapterManager.TipoLaborTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = CrudWizard.dsTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.VetaTableAdapter = Nothing
-        '
-        'NivelTableAdapter
-        '
-        Me.NivelTableAdapter.ClearBeforeFill = True
-        '
-        'VetaTableAdapter
-        '
-        Me.VetaTableAdapter.ClearBeforeFill = True
-        '
-        'TipoLaborTableAdapter
-        '
-        Me.TipoLaborTableAdapter.ClearBeforeFill = True
-        '
-        'OrientacionTableAdapter
-        '
-        Me.OrientacionTableAdapter.ClearBeforeFill = True
+        Me.LaborDataGridView.TabIndex = 1
         '
         'IdLaborDataGridViewTextBoxColumn
         '
@@ -469,12 +358,118 @@ Partial Class FrmLabor
         Me.IdOrientacionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.IdOrientacionDataGridViewTextBoxColumn.ValueMember = "IdOrientacion"
         '
+        'btnGrabar
+        '
+        Me.btnGrabar.Enabled = False
+        Me.btnGrabar.Image = CType(resources.GetObject("btnGrabar.Image"), System.Drawing.Image)
+        Me.btnGrabar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnGrabar.Location = New System.Drawing.Point(445, 394)
+        Me.btnGrabar.Name = "btnGrabar"
+        Me.btnGrabar.Size = New System.Drawing.Size(92, 44)
+        Me.btnGrabar.TabIndex = 7
+        Me.btnGrabar.Text = "Grabar"
+        Me.btnGrabar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnGrabar.UseVisualStyleBackColor = True
+        '
+        'btnEliminar
+        '
+        Me.btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), System.Drawing.Image)
+        Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEliminar.Location = New System.Drawing.Point(345, 394)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(92, 44)
+        Me.btnEliminar.TabIndex = 6
+        Me.btnEliminar.Text = "Eliminar"
+        Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnEliminar.UseVisualStyleBackColor = True
+        '
+        'btnCancelar
+        '
+        Me.btnCancelar.Enabled = False
+        Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
+        Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCancelar.Location = New System.Drawing.Point(212, 394)
+        Me.btnCancelar.Name = "btnCancelar"
+        Me.btnCancelar.Size = New System.Drawing.Size(92, 44)
+        Me.btnCancelar.TabIndex = 5
+        Me.btnCancelar.Text = "Cancelar"
+        Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCancelar.UseVisualStyleBackColor = True
+        '
+        'btnEditar
+        '
+        Me.btnEditar.Image = CType(resources.GetObject("btnEditar.Image"), System.Drawing.Image)
+        Me.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEditar.Location = New System.Drawing.Point(112, 394)
+        Me.btnEditar.Name = "btnEditar"
+        Me.btnEditar.Size = New System.Drawing.Size(92, 44)
+        Me.btnEditar.TabIndex = 4
+        Me.btnEditar.Text = "Editar"
+        Me.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnEditar.UseVisualStyleBackColor = True
+        '
+        'btnNuevo
+        '
+        Me.btnNuevo.Image = CType(resources.GetObject("btnNuevo.Image"), System.Drawing.Image)
+        Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnNuevo.Location = New System.Drawing.Point(12, 394)
+        Me.btnNuevo.Name = "btnNuevo"
+        Me.btnNuevo.Size = New System.Drawing.Size(92, 44)
+        Me.btnNuevo.TabIndex = 3
+        Me.btnNuevo.Text = "Nuevo"
+        Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnNuevo.UseVisualStyleBackColor = True
+        '
+        'ErrorProvider
+        '
+        Me.ErrorProvider.ContainerControl = Me
+        '
+        'LaborTableAdapter
+        '
+        Me.LaborTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.LaborTableAdapter = Me.LaborTableAdapter
+        Me.TableAdapterManager.NivelTableAdapter = Nothing
+        Me.TableAdapterManager.OrientacionTableAdapter = Nothing
+        Me.TableAdapterManager.TipoLaborTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = CrudWizard.dsTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.VetaTableAdapter = Nothing
+        '
+        'NivelTableAdapter
+        '
+        Me.NivelTableAdapter.ClearBeforeFill = True
+        '
+        'VetaTableAdapter
+        '
+        Me.VetaTableAdapter.ClearBeforeFill = True
+        '
+        'TipoLaborTableAdapter
+        '
+        Me.TipoLaborTableAdapter.ClearBeforeFill = True
+        '
+        'OrientacionTableAdapter
+        '
+        Me.OrientacionTableAdapter.ClearBeforeFill = True
+        '
+        'btnBuscar
+        '
+        Me.btnBuscar.Image = Global.CrudWizard.My.Resources.Resources.buscar
+        Me.btnBuscar.Location = New System.Drawing.Point(543, 394)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(44, 44)
+        Me.btnBuscar.TabIndex = 9
+        Me.btnBuscar.UseVisualStyleBackColor = True
+        '
         'FrmLabor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(735, 450)
+        Me.ClientSize = New System.Drawing.Size(738, 450)
+        Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.lblMantenimientoVetas)
         Me.Controls.Add(Me.btnGrabar)
         Me.Controls.Add(Me.btnEliminar)
@@ -483,11 +478,10 @@ Partial Class FrmLabor
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.GroupBoxDetalleVeta)
-        Me.Controls.Add(Label1)
-        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.LaborDataGridView)
         Me.Name = "FrmLabor"
-        Me.Text = "FrmLabor"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Mantenimiento Labores"
         Me.GroupBoxDetalleVeta.ResumeLayout(False)
         Me.GroupBoxDetalleVeta.PerformLayout()
         CType(Me.LaborBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -512,7 +506,6 @@ Partial Class FrmLabor
     Friend WithEvents GroupBoxDetalleVeta As GroupBox
     Friend WithEvents LaborDataGridView As DataGridView
     Friend WithEvents EstructuraDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents NombreLaborDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents IdEstructuraDataGridViewTextBoxColumn As DataGridViewComboBoxColumn
     Friend WithEvents ErrorProvider As ErrorProvider
@@ -540,4 +533,5 @@ Partial Class FrmLabor
     Friend WithEvents IdTipoLaborDataGridViewTextBoxColumn As DataGridViewComboBoxColumn
     Friend WithEvents UTMDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents IdOrientacionDataGridViewTextBoxColumn As DataGridViewComboBoxColumn
+    Friend WithEvents btnBuscar As Button
 End Class

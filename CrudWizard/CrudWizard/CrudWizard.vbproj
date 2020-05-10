@@ -82,6 +82,12 @@
     <Compile Include="ds.vb">
       <DependentUpon>ds.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FrmFiltroLabor.Designer.vb">
+      <DependentUpon>FrmFiltroLabor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFiltroLabor.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmLabor.Designer.vb">
       <DependentUpon>FrmLabor.vb</DependentUpon>
     </Compile>
@@ -117,6 +123,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmFiltroLabor.resx">
+      <DependentUpon>FrmFiltroLabor.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLabor.resx">
       <DependentUpon>FrmLabor.vb</DependentUpon>
     </EmbeddedResource>
@@ -156,7 +165,9 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\buscar.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cancelar.png" />
   </ItemGroup>

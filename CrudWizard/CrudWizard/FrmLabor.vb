@@ -221,4 +221,12 @@
         Me.TableAdapterManager.UpdateAll(Me.Ds)
 
     End Sub
+
+    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+        Dim frm As New FrmFiltroLabor
+        frm.ShowDialog()
+
+        LaborBindingSource.Position = LaborBindingSource.Find("IdLabor", frm.IdLabor)
+
+    End Sub
 End Class
