@@ -24,8 +24,11 @@ Partial Class FrmFiltroLabor
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.LaborDataGridView = New System.Windows.Forms.DataGridView()
-        Me.LaborBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Ds = New CrudWizard.ds()
+        Me.VetaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TipoLaborBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OrientacionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.LaborBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LaborTableAdapter = New CrudWizard.dsTableAdapters.LaborTableAdapter()
         Me.FillBy1ToolStrip = New System.Windows.Forms.ToolStrip()
         Me.UTMToolStripLabel = New System.Windows.Forms.ToolStripLabel()
@@ -33,14 +36,11 @@ Partial Class FrmFiltroLabor
         Me.FillBy1ToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.btnAceptar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.VetaTableAdapter = New CrudWizard.dsTableAdapters.VetaTableAdapter()
+        Me.TipoLaborTableAdapter = New CrudWizard.dsTableAdapters.TipoLaborTableAdapter()
+        Me.OrientacionTableAdapter = New CrudWizard.dsTableAdapters.OrientacionTableAdapter()
         Me.NivelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.NivelTableAdapter = New CrudWizard.dsTableAdapters.NivelTableAdapter()
-        Me.VetaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.VetaTableAdapter = New CrudWizard.dsTableAdapters.VetaTableAdapter()
-        Me.TipoLaborBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TipoLaborTableAdapter = New CrudWizard.dsTableAdapters.TipoLaborTableAdapter()
-        Me.OrientacionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OrientacionTableAdapter = New CrudWizard.dsTableAdapters.OrientacionTableAdapter()
         Me.IdLaborDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdNivelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.IdVetaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
@@ -48,13 +48,13 @@ Partial Class FrmFiltroLabor
         Me.UTMDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdOrientacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
         CType(Me.LaborDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LaborBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Ds, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.FillBy1ToolStrip.SuspendLayout()
-        CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VetaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TipoLaborBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OrientacionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LaborBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FillBy1ToolStrip.SuspendLayout()
+        CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LaborDataGridView
@@ -73,15 +73,30 @@ Partial Class FrmFiltroLabor
         Me.LaborDataGridView.Size = New System.Drawing.Size(655, 290)
         Me.LaborDataGridView.TabIndex = 1
         '
-        'LaborBindingSource
-        '
-        Me.LaborBindingSource.DataMember = "Labor"
-        Me.LaborBindingSource.DataSource = Me.Ds
-        '
         'Ds
         '
         Me.Ds.DataSetName = "ds"
         Me.Ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'VetaBindingSource
+        '
+        Me.VetaBindingSource.DataMember = "Veta"
+        Me.VetaBindingSource.DataSource = Me.Ds
+        '
+        'TipoLaborBindingSource
+        '
+        Me.TipoLaborBindingSource.DataMember = "TipoLabor"
+        Me.TipoLaborBindingSource.DataSource = Me.Ds
+        '
+        'OrientacionBindingSource
+        '
+        Me.OrientacionBindingSource.DataMember = "Orientacion"
+        Me.OrientacionBindingSource.DataSource = Me.Ds
+        '
+        'LaborBindingSource
+        '
+        Me.LaborBindingSource.DataMember = "Labor"
+        Me.LaborBindingSource.DataSource = Me.Ds
         '
         'LaborTableAdapter
         '
@@ -135,6 +150,18 @@ Partial Class FrmFiltroLabor
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
+        'VetaTableAdapter
+        '
+        Me.VetaTableAdapter.ClearBeforeFill = True
+        '
+        'TipoLaborTableAdapter
+        '
+        Me.TipoLaborTableAdapter.ClearBeforeFill = True
+        '
+        'OrientacionTableAdapter
+        '
+        Me.OrientacionTableAdapter.ClearBeforeFill = True
+        '
         'NivelBindingSource
         '
         Me.NivelBindingSource.DataMember = "Nivel"
@@ -143,33 +170,6 @@ Partial Class FrmFiltroLabor
         'NivelTableAdapter
         '
         Me.NivelTableAdapter.ClearBeforeFill = True
-        '
-        'VetaBindingSource
-        '
-        Me.VetaBindingSource.DataMember = "Veta"
-        Me.VetaBindingSource.DataSource = Me.Ds
-        '
-        'VetaTableAdapter
-        '
-        Me.VetaTableAdapter.ClearBeforeFill = True
-        '
-        'TipoLaborBindingSource
-        '
-        Me.TipoLaborBindingSource.DataMember = "TipoLabor"
-        Me.TipoLaborBindingSource.DataSource = Me.Ds
-        '
-        'TipoLaborTableAdapter
-        '
-        Me.TipoLaborTableAdapter.ClearBeforeFill = True
-        '
-        'OrientacionBindingSource
-        '
-        Me.OrientacionBindingSource.DataMember = "Orientacion"
-        Me.OrientacionBindingSource.DataSource = Me.Ds
-        '
-        'OrientacionTableAdapter
-        '
-        Me.OrientacionTableAdapter.ClearBeforeFill = True
         '
         'IdLaborDataGridViewTextBoxColumn
         '
@@ -249,14 +249,14 @@ Partial Class FrmFiltroLabor
         Me.Name = "FrmFiltroLabor"
         Me.Text = "Filtro de Labor"
         CType(Me.LaborDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LaborBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Ds, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.FillBy1ToolStrip.ResumeLayout(False)
-        Me.FillBy1ToolStrip.PerformLayout()
-        CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VetaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TipoLaborBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OrientacionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LaborBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FillBy1ToolStrip.ResumeLayout(False)
+        Me.FillBy1ToolStrip.PerformLayout()
+        CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -272,14 +272,14 @@ Partial Class FrmFiltroLabor
     Friend WithEvents FillBy1ToolStripButton As ToolStripButton
     Friend WithEvents btnAceptar As Button
     Friend WithEvents btnCancelar As Button
-    Friend WithEvents NivelBindingSource As BindingSource
-    Friend WithEvents NivelTableAdapter As dsTableAdapters.NivelTableAdapter
     Friend WithEvents VetaBindingSource As BindingSource
     Friend WithEvents VetaTableAdapter As dsTableAdapters.VetaTableAdapter
     Friend WithEvents TipoLaborBindingSource As BindingSource
     Friend WithEvents TipoLaborTableAdapter As dsTableAdapters.TipoLaborTableAdapter
     Friend WithEvents OrientacionBindingSource As BindingSource
     Friend WithEvents OrientacionTableAdapter As dsTableAdapters.OrientacionTableAdapter
+    Friend WithEvents NivelBindingSource As BindingSource
+    Friend WithEvents NivelTableAdapter As dsTableAdapters.NivelTableAdapter
     Friend WithEvents IdLaborDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents IdNivelDataGridViewTextBoxColumn As DataGridViewComboBoxColumn
     Friend WithEvents IdVetaDataGridViewTextBoxColumn As DataGridViewComboBoxColumn

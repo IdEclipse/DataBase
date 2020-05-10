@@ -43,11 +43,11 @@ Partial Class FrmLabor
         Me.IdVetaComboBox = New System.Windows.Forms.ComboBox()
         Me.VetaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IdNivelComboBox = New System.Windows.Forms.ComboBox()
-        Me.NivelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IdLaborTextBox = New System.Windows.Forms.TextBox()
         Me.LaborDataGridView = New System.Windows.Forms.DataGridView()
         Me.IdLaborDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdNivelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.NivelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IdVetaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.IdTipoLaborDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.UTMDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -58,13 +58,13 @@ Partial Class FrmLabor
         Me.btnEditar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.LaborTableAdapter = New CrudWizard.dsTableAdapters.LaborTableAdapter()
         Me.TableAdapterManager = New CrudWizard.dsTableAdapters.TableAdapterManager()
-        Me.NivelTableAdapter = New CrudWizard.dsTableAdapters.NivelTableAdapter()
         Me.VetaTableAdapter = New CrudWizard.dsTableAdapters.VetaTableAdapter()
         Me.TipoLaborTableAdapter = New CrudWizard.dsTableAdapters.TipoLaborTableAdapter()
         Me.OrientacionTableAdapter = New CrudWizard.dsTableAdapters.OrientacionTableAdapter()
-        Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.NivelTableAdapter = New CrudWizard.dsTableAdapters.NivelTableAdapter()
         IdLaborLabel = New System.Windows.Forms.Label()
         IdNivelLabel = New System.Windows.Forms.Label()
         IdVetaLabel = New System.Windows.Forms.Label()
@@ -77,8 +77,8 @@ Partial Class FrmLabor
         CType(Me.TipoLaborBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OrientacionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VetaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaborDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -140,7 +140,7 @@ Partial Class FrmLabor
         '
         Me.lblMantenimientoVetas.AutoSize = True
         Me.lblMantenimientoVetas.Font = New System.Drawing.Font("Tahoma", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMantenimientoVetas.ForeColor = System.Drawing.Color.Gray
+        Me.lblMantenimientoVetas.ForeColor = System.Drawing.SystemColors.ActiveCaption
         Me.lblMantenimientoVetas.Location = New System.Drawing.Point(12, 9)
         Me.lblMantenimientoVetas.Name = "lblMantenimientoVetas"
         Me.lblMantenimientoVetas.Size = New System.Drawing.Size(235, 23)
@@ -263,11 +263,6 @@ Partial Class FrmLabor
         Me.IdNivelComboBox.TabIndex = 3
         Me.IdNivelComboBox.ValueMember = "IdNivel"
         '
-        'NivelBindingSource
-        '
-        Me.NivelBindingSource.DataMember = "Nivel"
-        Me.NivelBindingSource.DataSource = Me.Ds
-        '
         'IdLaborTextBox
         '
         Me.IdLaborTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.LaborBindingSource, "IdLabor", True))
@@ -311,6 +306,11 @@ Partial Class FrmLabor
         Me.IdNivelDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.IdNivelDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.IdNivelDataGridViewTextBoxColumn.ValueMember = "IdNivel"
+        '
+        'NivelBindingSource
+        '
+        Me.NivelBindingSource.DataMember = "Nivel"
+        Me.NivelBindingSource.DataSource = Me.Ds
         '
         'IdVetaDataGridViewTextBoxColumn
         '
@@ -424,6 +424,15 @@ Partial Class FrmLabor
         '
         Me.ErrorProvider.ContainerControl = Me
         '
+        'btnBuscar
+        '
+        Me.btnBuscar.Image = Global.CrudWizard.My.Resources.Resources.buscar
+        Me.btnBuscar.Location = New System.Drawing.Point(543, 394)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(44, 44)
+        Me.btnBuscar.TabIndex = 9
+        Me.btnBuscar.UseVisualStyleBackColor = True
+        '
         'LaborTableAdapter
         '
         Me.LaborTableAdapter.ClearBeforeFill = True
@@ -438,10 +447,6 @@ Partial Class FrmLabor
         Me.TableAdapterManager.UpdateOrder = CrudWizard.dsTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.VetaTableAdapter = Nothing
         '
-        'NivelTableAdapter
-        '
-        Me.NivelTableAdapter.ClearBeforeFill = True
-        '
         'VetaTableAdapter
         '
         Me.VetaTableAdapter.ClearBeforeFill = True
@@ -454,14 +459,9 @@ Partial Class FrmLabor
         '
         Me.OrientacionTableAdapter.ClearBeforeFill = True
         '
-        'btnBuscar
+        'NivelTableAdapter
         '
-        Me.btnBuscar.Image = Global.CrudWizard.My.Resources.Resources.buscar
-        Me.btnBuscar.Location = New System.Drawing.Point(543, 394)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(44, 44)
-        Me.btnBuscar.TabIndex = 9
-        Me.btnBuscar.UseVisualStyleBackColor = True
+        Me.NivelTableAdapter.ClearBeforeFill = True
         '
         'FrmLabor
         '
@@ -489,8 +489,8 @@ Partial Class FrmLabor
         CType(Me.TipoLaborBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OrientacionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VetaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LaborDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -519,19 +519,19 @@ Partial Class FrmLabor
     Friend WithEvents IdNivelComboBox As ComboBox
     Friend WithEvents IdLaborTextBox As TextBox
     Friend WithEvents TableAdapterManager As dsTableAdapters.TableAdapterManager
-    Friend WithEvents NivelBindingSource As BindingSource
-    Friend WithEvents NivelTableAdapter As dsTableAdapters.NivelTableAdapter
     Friend WithEvents VetaBindingSource As BindingSource
     Friend WithEvents VetaTableAdapter As dsTableAdapters.VetaTableAdapter
     Friend WithEvents TipoLaborBindingSource As BindingSource
     Friend WithEvents TipoLaborTableAdapter As dsTableAdapters.TipoLaborTableAdapter
     Friend WithEvents OrientacionBindingSource As BindingSource
     Friend WithEvents OrientacionTableAdapter As dsTableAdapters.OrientacionTableAdapter
+    Friend WithEvents btnBuscar As Button
+    Friend WithEvents NivelBindingSource As BindingSource
+    Friend WithEvents NivelTableAdapter As dsTableAdapters.NivelTableAdapter
     Friend WithEvents IdLaborDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents IdNivelDataGridViewTextBoxColumn As DataGridViewComboBoxColumn
     Friend WithEvents IdVetaDataGridViewTextBoxColumn As DataGridViewComboBoxColumn
     Friend WithEvents IdTipoLaborDataGridViewTextBoxColumn As DataGridViewComboBoxColumn
     Friend WithEvents UTMDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents IdOrientacionDataGridViewTextBoxColumn As DataGridViewComboBoxColumn
-    Friend WithEvents btnBuscar As Button
 End Class

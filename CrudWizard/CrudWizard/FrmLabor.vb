@@ -2,6 +2,8 @@
     Dim Opcion As Integer = 0
     Dim posicion As Integer
     Private Sub FrmLabor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'Ds.Nivel' Puede moverla o quitarla según sea necesario.
+        Me.NivelTableAdapter.Fill(Me.Ds.Nivel)
         'TODO: esta línea de código carga datos en la tabla 'Ds1.Mostrar_Labor' Puede moverla o quitarla según sea necesario.
 
 

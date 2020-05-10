@@ -11,6 +11,8 @@
     End Property
 
     Private Sub FrmFiltroLabor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'Ds.Nivel' Puede moverla o quitarla según sea necesario.
+        Me.NivelTableAdapter.Fill(Me.Ds.Nivel)
         'TODO: esta línea de código carga datos en la tabla 'Ds.Orientacion' Puede moverla o quitarla según sea necesario.
         Me.OrientacionTableAdapter.Fill(Me.Ds.Orientacion)
         'TODO: esta línea de código carga datos en la tabla 'Ds.TipoLabor' Puede moverla o quitarla según sea necesario.
