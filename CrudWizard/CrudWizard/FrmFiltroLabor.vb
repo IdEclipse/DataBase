@@ -1,4 +1,5 @@
-﻿Public Class FrmFiltroLabor
+﻿Imports System.Reflection
+Public Class FrmFiltroLabor
     Private _idLabor As Integer
 
     Public Property IdLabor As Integer
@@ -24,25 +25,14 @@
         'TODO: esta línea de código carga datos en la tabla 'Ds.Labor' Puede moverla o quitarla según sea necesario.
         Me.LaborTableAdapter.Fill(Me.Ds.Labor)
 
-        UTMToolStripTextBox.Focus()
-        UTMToolStripTextBox.SelectAll()
 
 
 
 
-    End Sub
-
-    Private Sub FillBy1ToolStripButton_Click(sender As Object, e As EventArgs) Handles FillBy1ToolStripButton.Click
-        Dim UTM As String
-        UTM = UTMToolStripTextBox.Text + "%"
-
-        Try
-            Me.LaborTableAdapter.FillBy1(Me.Ds.Labor, UTM)
-        Catch ex As System.Exception
-            System.Windows.Forms.MessageBox.Show(ex.Message)
-        End Try
 
     End Sub
+
+
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         Me.Close()
@@ -54,4 +44,18 @@
         Me.Close()
 
     End Sub
+
+
+    Sub New()
+
+        ' Llamada necesaria para el diseñador.
+        InitializeComponent()
+        ' para acelerar el grid control desde el constructor
+        LaborDataGridView.GetType().GetMethod("SetStyle", BindingFlags.Instance Or BindingFlags.NonPublic).Invoke(LaborDataGridView, New Object() {ControlStyles.UserPaint Or ControlStyles.AllPaintingInWmPaint Or ControlStyles.DoubleBuffer, True})
+
+    End Sub
+
+
+
+
 End Class

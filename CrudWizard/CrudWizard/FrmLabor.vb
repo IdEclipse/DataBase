@@ -1,4 +1,5 @@
-﻿Public Class FrmLabor
+﻿Imports System.Reflection
+Public Class FrmLabor
     Dim Opcion As Integer = 0
     Dim posicion As Integer
     Private Sub FrmLabor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -231,4 +232,15 @@
         LaborBindingSource.Position = LaborBindingSource.Find("IdLabor", frm.IdLabor)
 
     End Sub
+
+
+    Sub New()
+
+        ' Llamada necesaria para el diseñador.
+        InitializeComponent()
+        ' para acelerar el grid control desde el constructor
+        LaborDataGridView.GetType().GetMethod("SetStyle", BindingFlags.Instance Or BindingFlags.NonPublic).Invoke(LaborDataGridView, New Object() {ControlStyles.UserPaint Or ControlStyles.AllPaintingInWmPaint Or ControlStyles.DoubleBuffer, True})
+
+    End Sub
+
 End Class

@@ -23,55 +23,40 @@ Partial Class FrmFiltroLabor
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.LaborDataGridView = New System.Windows.Forms.DataGridView()
+        Me.NivelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Ds = New CrudWizard.ds()
         Me.VetaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TipoLaborBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.OrientacionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LaborBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LaborTableAdapter = New CrudWizard.dsTableAdapters.LaborTableAdapter()
-        Me.FillBy1ToolStrip = New System.Windows.Forms.ToolStrip()
-        Me.UTMToolStripLabel = New System.Windows.Forms.ToolStripLabel()
-        Me.UTMToolStripTextBox = New System.Windows.Forms.ToolStripTextBox()
-        Me.FillBy1ToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.btnAceptar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.VetaTableAdapter = New CrudWizard.dsTableAdapters.VetaTableAdapter()
         Me.TipoLaborTableAdapter = New CrudWizard.dsTableAdapters.TipoLaborTableAdapter()
         Me.OrientacionTableAdapter = New CrudWizard.dsTableAdapters.OrientacionTableAdapter()
-        Me.NivelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.NivelTableAdapter = New CrudWizard.dsTableAdapters.NivelTableAdapter()
-        Me.IdLaborDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdNivelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.IdVetaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.IdTipoLaborDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.UTMDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdOrientacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        CType(Me.LaborDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.LaborDataGridView = New Zuby.ADGV.AdvancedDataGridView()
+        Me.IdLaborDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdNivelDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.IdVetaDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.IdTipoLaborDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.UTMDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdOrientacionDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.lblMantenimientoVetas = New System.Windows.Forms.Label()
+        CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Ds, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VetaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TipoLaborBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OrientacionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LaborBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.FillBy1ToolStrip.SuspendLayout()
-        CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LaborDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'LaborDataGridView
+        'NivelBindingSource
         '
-        Me.LaborDataGridView.AllowUserToAddRows = False
-        Me.LaborDataGridView.AllowUserToDeleteRows = False
-        Me.LaborDataGridView.AutoGenerateColumns = False
-        Me.LaborDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LaborDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdLaborDataGridViewTextBoxColumn, Me.IdNivelDataGridViewTextBoxColumn, Me.IdVetaDataGridViewTextBoxColumn, Me.IdTipoLaborDataGridViewTextBoxColumn, Me.UTMDataGridViewTextBoxColumn, Me.IdOrientacionDataGridViewTextBoxColumn})
-        Me.LaborDataGridView.DataSource = Me.LaborBindingSource
-        Me.LaborDataGridView.Location = New System.Drawing.Point(12, 54)
-        Me.LaborDataGridView.MultiSelect = False
-        Me.LaborDataGridView.Name = "LaborDataGridView"
-        Me.LaborDataGridView.ReadOnly = True
-        Me.LaborDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.LaborDataGridView.Size = New System.Drawing.Size(655, 290)
-        Me.LaborDataGridView.TabIndex = 1
+        Me.NivelBindingSource.DataMember = "Nivel"
+        Me.NivelBindingSource.DataSource = Me.Ds
         '
         'Ds
         '
@@ -102,50 +87,20 @@ Partial Class FrmFiltroLabor
         '
         Me.LaborTableAdapter.ClearBeforeFill = True
         '
-        'FillBy1ToolStrip
-        '
-        Me.FillBy1ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UTMToolStripLabel, Me.UTMToolStripTextBox, Me.FillBy1ToolStripButton})
-        Me.FillBy1ToolStrip.Location = New System.Drawing.Point(0, 0)
-        Me.FillBy1ToolStrip.Name = "FillBy1ToolStrip"
-        Me.FillBy1ToolStrip.Size = New System.Drawing.Size(667, 39)
-        Me.FillBy1ToolStrip.TabIndex = 0
-        Me.FillBy1ToolStrip.Text = "FillBy1ToolStrip"
-        '
-        'UTMToolStripLabel
-        '
-        Me.UTMToolStripLabel.Name = "UTMToolStripLabel"
-        Me.UTMToolStripLabel.Size = New System.Drawing.Size(35, 36)
-        Me.UTMToolStripLabel.Text = "UTM:"
-        '
-        'UTMToolStripTextBox
-        '
-        Me.UTMToolStripTextBox.Name = "UTMToolStripTextBox"
-        Me.UTMToolStripTextBox.Size = New System.Drawing.Size(100, 39)
-        Me.UTMToolStripTextBox.Text = "UTM"
-        '
-        'FillBy1ToolStripButton
-        '
-        Me.FillBy1ToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.FillBy1ToolStripButton.Image = Global.CrudWizard.My.Resources.Resources.buscar
-        Me.FillBy1ToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.FillBy1ToolStripButton.Name = "FillBy1ToolStripButton"
-        Me.FillBy1ToolStripButton.Size = New System.Drawing.Size(36, 36)
-        Me.FillBy1ToolStripButton.Text = "FillBy1"
-        '
         'btnAceptar
         '
-        Me.btnAceptar.Location = New System.Drawing.Point(499, 12)
+        Me.btnAceptar.Location = New System.Drawing.Point(480, 335)
         Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(75, 27)
+        Me.btnAceptar.Size = New System.Drawing.Size(87, 32)
         Me.btnAceptar.TabIndex = 2
         Me.btnAceptar.Text = "Aceptar"
         Me.btnAceptar.UseVisualStyleBackColor = True
         '
         'btnCancelar
         '
-        Me.btnCancelar.Location = New System.Drawing.Point(580, 12)
+        Me.btnCancelar.Location = New System.Drawing.Point(583, 335)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(75, 27)
+        Me.btnCancelar.Size = New System.Drawing.Size(87, 32)
         Me.btnCancelar.TabIndex = 3
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
@@ -162,114 +117,139 @@ Partial Class FrmFiltroLabor
         '
         Me.OrientacionTableAdapter.ClearBeforeFill = True
         '
-        'NivelBindingSource
-        '
-        Me.NivelBindingSource.DataMember = "Nivel"
-        Me.NivelBindingSource.DataSource = Me.Ds
-        '
         'NivelTableAdapter
         '
         Me.NivelTableAdapter.ClearBeforeFill = True
         '
-        'IdLaborDataGridViewTextBoxColumn
+        'LaborDataGridView
         '
-        Me.IdLaborDataGridViewTextBoxColumn.DataPropertyName = "IdLabor"
-        Me.IdLaborDataGridViewTextBoxColumn.HeaderText = "IdLabor"
-        Me.IdLaborDataGridViewTextBoxColumn.Name = "IdLaborDataGridViewTextBoxColumn"
-        Me.IdLaborDataGridViewTextBoxColumn.ReadOnly = True
+        Me.LaborDataGridView.AllowUserToAddRows = False
+        Me.LaborDataGridView.AllowUserToDeleteRows = False
+        Me.LaborDataGridView.AutoGenerateColumns = False
+        Me.LaborDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.LaborDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdLaborDataGridViewTextBoxColumn1, Me.IdNivelDataGridViewTextBoxColumn1, Me.IdVetaDataGridViewTextBoxColumn1, Me.IdTipoLaborDataGridViewTextBoxColumn1, Me.UTMDataGridViewTextBoxColumn1, Me.IdOrientacionDataGridViewTextBoxColumn1})
+        Me.LaborDataGridView.DataSource = Me.LaborBindingSource
+        Me.LaborDataGridView.FilterAndSortEnabled = True
+        Me.LaborDataGridView.Location = New System.Drawing.Point(7, 43)
+        Me.LaborDataGridView.MultiSelect = False
+        Me.LaborDataGridView.Name = "LaborDataGridView"
+        Me.LaborDataGridView.ReadOnly = True
+        Me.LaborDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.LaborDataGridView.Size = New System.Drawing.Size(663, 286)
+        Me.LaborDataGridView.TabIndex = 4
         '
-        'IdNivelDataGridViewTextBoxColumn
+        'IdLaborDataGridViewTextBoxColumn1
         '
-        Me.IdNivelDataGridViewTextBoxColumn.DataPropertyName = "IdNivel"
-        Me.IdNivelDataGridViewTextBoxColumn.DataSource = Me.NivelBindingSource
-        Me.IdNivelDataGridViewTextBoxColumn.DisplayMember = "NombreNivel"
-        Me.IdNivelDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
-        Me.IdNivelDataGridViewTextBoxColumn.HeaderText = "IdNivel"
-        Me.IdNivelDataGridViewTextBoxColumn.Name = "IdNivelDataGridViewTextBoxColumn"
-        Me.IdNivelDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdNivelDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.IdNivelDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.IdNivelDataGridViewTextBoxColumn.ValueMember = "IdNivel"
+        Me.IdLaborDataGridViewTextBoxColumn1.DataPropertyName = "IdLabor"
+        Me.IdLaborDataGridViewTextBoxColumn1.HeaderText = "ID"
+        Me.IdLaborDataGridViewTextBoxColumn1.MinimumWidth = 22
+        Me.IdLaborDataGridViewTextBoxColumn1.Name = "IdLaborDataGridViewTextBoxColumn1"
+        Me.IdLaborDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.IdLaborDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
         '
-        'IdVetaDataGridViewTextBoxColumn
+        'IdNivelDataGridViewTextBoxColumn1
         '
-        Me.IdVetaDataGridViewTextBoxColumn.DataPropertyName = "IdVeta"
-        Me.IdVetaDataGridViewTextBoxColumn.DataSource = Me.VetaBindingSource
-        Me.IdVetaDataGridViewTextBoxColumn.DisplayMember = "NombreVeta"
-        Me.IdVetaDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
-        Me.IdVetaDataGridViewTextBoxColumn.HeaderText = "IdVeta"
-        Me.IdVetaDataGridViewTextBoxColumn.Name = "IdVetaDataGridViewTextBoxColumn"
-        Me.IdVetaDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdVetaDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.IdVetaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.IdVetaDataGridViewTextBoxColumn.ValueMember = "IdVeta"
+        Me.IdNivelDataGridViewTextBoxColumn1.DataPropertyName = "IdNivel"
+        Me.IdNivelDataGridViewTextBoxColumn1.DataSource = Me.NivelBindingSource
+        Me.IdNivelDataGridViewTextBoxColumn1.DisplayMember = "NombreNivel"
+        Me.IdNivelDataGridViewTextBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
+        Me.IdNivelDataGridViewTextBoxColumn1.HeaderText = "Nivel"
+        Me.IdNivelDataGridViewTextBoxColumn1.MinimumWidth = 22
+        Me.IdNivelDataGridViewTextBoxColumn1.Name = "IdNivelDataGridViewTextBoxColumn1"
+        Me.IdNivelDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.IdNivelDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.IdNivelDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
+        Me.IdNivelDataGridViewTextBoxColumn1.ValueMember = "IdNivel"
         '
-        'IdTipoLaborDataGridViewTextBoxColumn
+        'IdVetaDataGridViewTextBoxColumn1
         '
-        Me.IdTipoLaborDataGridViewTextBoxColumn.DataPropertyName = "IdTipoLabor"
-        Me.IdTipoLaborDataGridViewTextBoxColumn.DataSource = Me.TipoLaborBindingSource
-        Me.IdTipoLaborDataGridViewTextBoxColumn.DisplayMember = "NombreTipoLabor"
-        Me.IdTipoLaborDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
-        Me.IdTipoLaborDataGridViewTextBoxColumn.HeaderText = "IdTipoLabor"
-        Me.IdTipoLaborDataGridViewTextBoxColumn.Name = "IdTipoLaborDataGridViewTextBoxColumn"
-        Me.IdTipoLaborDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdTipoLaborDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.IdTipoLaborDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.IdTipoLaborDataGridViewTextBoxColumn.ValueMember = "IdTipoLabor"
+        Me.IdVetaDataGridViewTextBoxColumn1.DataPropertyName = "IdVeta"
+        Me.IdVetaDataGridViewTextBoxColumn1.DataSource = Me.VetaBindingSource
+        Me.IdVetaDataGridViewTextBoxColumn1.DisplayMember = "NombreVeta"
+        Me.IdVetaDataGridViewTextBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
+        Me.IdVetaDataGridViewTextBoxColumn1.HeaderText = "Veta"
+        Me.IdVetaDataGridViewTextBoxColumn1.MinimumWidth = 22
+        Me.IdVetaDataGridViewTextBoxColumn1.Name = "IdVetaDataGridViewTextBoxColumn1"
+        Me.IdVetaDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.IdVetaDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.IdVetaDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
+        Me.IdVetaDataGridViewTextBoxColumn1.ValueMember = "IdVeta"
         '
-        'UTMDataGridViewTextBoxColumn
+        'IdTipoLaborDataGridViewTextBoxColumn1
         '
-        Me.UTMDataGridViewTextBoxColumn.DataPropertyName = "UTM"
-        Me.UTMDataGridViewTextBoxColumn.HeaderText = "UTM"
-        Me.UTMDataGridViewTextBoxColumn.Name = "UTMDataGridViewTextBoxColumn"
-        Me.UTMDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IdTipoLaborDataGridViewTextBoxColumn1.DataPropertyName = "IdTipoLabor"
+        Me.IdTipoLaborDataGridViewTextBoxColumn1.DataSource = Me.TipoLaborBindingSource
+        Me.IdTipoLaborDataGridViewTextBoxColumn1.DisplayMember = "NombreTipoLabor"
+        Me.IdTipoLaborDataGridViewTextBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
+        Me.IdTipoLaborDataGridViewTextBoxColumn1.HeaderText = "Tipo Labor"
+        Me.IdTipoLaborDataGridViewTextBoxColumn1.MinimumWidth = 22
+        Me.IdTipoLaborDataGridViewTextBoxColumn1.Name = "IdTipoLaborDataGridViewTextBoxColumn1"
+        Me.IdTipoLaborDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.IdTipoLaborDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.IdTipoLaborDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
+        Me.IdTipoLaborDataGridViewTextBoxColumn1.ValueMember = "IdTipoLabor"
         '
-        'IdOrientacionDataGridViewTextBoxColumn
+        'UTMDataGridViewTextBoxColumn1
         '
-        Me.IdOrientacionDataGridViewTextBoxColumn.DataPropertyName = "IdOrientacion"
-        Me.IdOrientacionDataGridViewTextBoxColumn.DataSource = Me.OrientacionBindingSource
-        Me.IdOrientacionDataGridViewTextBoxColumn.DisplayMember = "NombreOrientacion"
-        Me.IdOrientacionDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
-        Me.IdOrientacionDataGridViewTextBoxColumn.HeaderText = "IdOrientacion"
-        Me.IdOrientacionDataGridViewTextBoxColumn.Name = "IdOrientacionDataGridViewTextBoxColumn"
-        Me.IdOrientacionDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdOrientacionDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.IdOrientacionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.IdOrientacionDataGridViewTextBoxColumn.ValueMember = "IdOrientacion"
+        Me.UTMDataGridViewTextBoxColumn1.DataPropertyName = "UTM"
+        Me.UTMDataGridViewTextBoxColumn1.HeaderText = "UTM"
+        Me.UTMDataGridViewTextBoxColumn1.MinimumWidth = 22
+        Me.UTMDataGridViewTextBoxColumn1.Name = "UTMDataGridViewTextBoxColumn1"
+        Me.UTMDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.UTMDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
+        '
+        'IdOrientacionDataGridViewTextBoxColumn1
+        '
+        Me.IdOrientacionDataGridViewTextBoxColumn1.DataPropertyName = "IdOrientacion"
+        Me.IdOrientacionDataGridViewTextBoxColumn1.DataSource = Me.OrientacionBindingSource
+        Me.IdOrientacionDataGridViewTextBoxColumn1.DisplayMember = "NombreOrientacion"
+        Me.IdOrientacionDataGridViewTextBoxColumn1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.[Nothing]
+        Me.IdOrientacionDataGridViewTextBoxColumn1.HeaderText = "Orientacion"
+        Me.IdOrientacionDataGridViewTextBoxColumn1.MinimumWidth = 22
+        Me.IdOrientacionDataGridViewTextBoxColumn1.Name = "IdOrientacionDataGridViewTextBoxColumn1"
+        Me.IdOrientacionDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.IdOrientacionDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.IdOrientacionDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
+        Me.IdOrientacionDataGridViewTextBoxColumn1.ValueMember = "IdOrientacion"
+        '
+        'lblMantenimientoVetas
+        '
+        Me.lblMantenimientoVetas.AutoSize = True
+        Me.lblMantenimientoVetas.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMantenimientoVetas.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.lblMantenimientoVetas.Location = New System.Drawing.Point(7, 9)
+        Me.lblMantenimientoVetas.Name = "lblMantenimientoVetas"
+        Me.lblMantenimientoVetas.Size = New System.Drawing.Size(177, 19)
+        Me.lblMantenimientoVetas.TabIndex = 5
+        Me.lblMantenimientoVetas.Text = "FILTRO DE LABORES"
         '
         'FrmFiltroLabor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(667, 356)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(677, 374)
+        Me.Controls.Add(Me.lblMantenimientoVetas)
+        Me.Controls.Add(Me.LaborDataGridView)
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.btnAceptar)
-        Me.Controls.Add(Me.FillBy1ToolStrip)
-        Me.Controls.Add(Me.LaborDataGridView)
         Me.Name = "FrmFiltroLabor"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Filtro de Labor"
-        CType(Me.LaborDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Ds, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VetaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TipoLaborBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OrientacionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LaborBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.FillBy1ToolStrip.ResumeLayout(False)
-        Me.FillBy1ToolStrip.PerformLayout()
-        CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LaborDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents LaborDataGridView As DataGridView
     Friend WithEvents Ds As ds
     Friend WithEvents LaborBindingSource As BindingSource
     Friend WithEvents LaborTableAdapter As dsTableAdapters.LaborTableAdapter
-    Friend WithEvents FillBy1ToolStrip As ToolStrip
-    Friend WithEvents UTMToolStripLabel As ToolStripLabel
-    Friend WithEvents UTMToolStripTextBox As ToolStripTextBox
-    Friend WithEvents FillBy1ToolStripButton As ToolStripButton
     Friend WithEvents btnAceptar As Button
     Friend WithEvents btnCancelar As Button
     Friend WithEvents VetaBindingSource As BindingSource
@@ -280,10 +260,12 @@ Partial Class FrmFiltroLabor
     Friend WithEvents OrientacionTableAdapter As dsTableAdapters.OrientacionTableAdapter
     Friend WithEvents NivelBindingSource As BindingSource
     Friend WithEvents NivelTableAdapter As dsTableAdapters.NivelTableAdapter
-    Friend WithEvents IdLaborDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents IdNivelDataGridViewTextBoxColumn As DataGridViewComboBoxColumn
-    Friend WithEvents IdVetaDataGridViewTextBoxColumn As DataGridViewComboBoxColumn
-    Friend WithEvents IdTipoLaborDataGridViewTextBoxColumn As DataGridViewComboBoxColumn
-    Friend WithEvents UTMDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents IdOrientacionDataGridViewTextBoxColumn As DataGridViewComboBoxColumn
+    Friend WithEvents LaborDataGridView As Zuby.ADGV.AdvancedDataGridView
+    Friend WithEvents lblMantenimientoVetas As Label
+    Friend WithEvents IdLaborDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents IdNivelDataGridViewTextBoxColumn1 As DataGridViewComboBoxColumn
+    Friend WithEvents IdVetaDataGridViewTextBoxColumn1 As DataGridViewComboBoxColumn
+    Friend WithEvents IdTipoLaborDataGridViewTextBoxColumn1 As DataGridViewComboBoxColumn
+    Friend WithEvents UTMDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents IdOrientacionDataGridViewTextBoxColumn1 As DataGridViewComboBoxColumn
 End Class
