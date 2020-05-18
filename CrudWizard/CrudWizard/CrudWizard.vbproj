@@ -97,10 +97,22 @@
     <Compile Include="FrmLabor.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmLoggin.Designer.vb">
+      <DependentUpon>FrmLoggin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoggin.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmNivel.Designer.vb">
       <DependentUpon>FrmNivel.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmNivel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrincipal.Designer.vb">
+      <DependentUpon>FrmPrincipal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPrincipal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmVeta.Designer.vb">
@@ -132,8 +144,14 @@
     <EmbeddedResource Include="FrmLabor.resx">
       <DependentUpon>FrmLabor.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoggin.resx">
+      <DependentUpon>FrmLoggin.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmNivel.resx">
       <DependentUpon>FrmNivel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVeta.resx">
       <DependentUpon>FrmVeta.vb</DependentUpon>

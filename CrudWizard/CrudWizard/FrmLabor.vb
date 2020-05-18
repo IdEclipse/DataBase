@@ -34,12 +34,14 @@ Public Class FrmLabor
         AlternaBotones()
         HabilitaCajaTexto()
 
+
         'Deshabilitar Binding
         posicion = LaborBindingSource.Position
         LaborBindingSource.SuspendBinding()
 
         Opcion = 1  'Opcion cuando se graba
         LaborDataGridView.Enabled = False
+        IdOrientacionComboBox.SelectedIndex = 0
     End Sub
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
         GroupBoxDetalleVeta.Enabled = True
@@ -229,7 +231,7 @@ Public Class FrmLabor
         Dim frm As New FrmFiltroLabor
         frm.ShowDialog()
 
-        LaborBindingSource.Position = LaborBindingSource.Find("IdLabor", frm.IdLabor)
+        LaborBindingSource.Position = LaborBindingSource.Find("IdLabor", frm.IdLabor)   'Busqueda usando BindingSource
 
     End Sub
 

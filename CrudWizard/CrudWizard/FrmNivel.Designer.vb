@@ -26,7 +26,6 @@ Partial Class FrmNivel
         Dim IdVetaLabel As System.Windows.Forms.Label
         Dim NombreVetaLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmNivel))
-        Me.lblMantenimientoVetas = New System.Windows.Forms.Label()
         Me.btnGrabar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
@@ -36,18 +35,19 @@ Partial Class FrmNivel
         Me.GroupBoxDetalleVeta = New System.Windows.Forms.GroupBox()
         Me.NombreNivelTextBox = New System.Windows.Forms.TextBox()
         Me.NivelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ds = New CrudWizard.ds()
+        Me.Ds = New CrudWizard.ds()
         Me.IdNivelTextBox = New System.Windows.Forms.TextBox()
         Me.NivelDataGridView = New System.Windows.Forms.DataGridView()
         Me.IdNivelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreNivelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NivelTableAdapter = New CrudWizard.dsTableAdapters.NivelTableAdapter()
         Me.ErrorProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.NivelTableAdapter = New CrudWizard.dsTableAdapters.NivelTableAdapter()
+        Me.Label1 = New System.Windows.Forms.Label()
         IdVetaLabel = New System.Windows.Forms.Label()
         NombreVetaLabel = New System.Windows.Forms.Label()
         Me.GroupBoxDetalleVeta.SuspendLayout()
         CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ds, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Ds, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NivelDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -55,33 +55,24 @@ Partial Class FrmNivel
         'IdVetaLabel
         '
         IdVetaLabel.AutoSize = True
-        IdVetaLabel.Location = New System.Drawing.Point(18, 26)
+        IdVetaLabel.Location = New System.Drawing.Point(47, 28)
         IdVetaLabel.Name = "IdVetaLabel"
-        IdVetaLabel.Size = New System.Drawing.Size(46, 13)
+        IdVetaLabel.Size = New System.Drawing.Size(21, 13)
         IdVetaLabel.TabIndex = 0
-        IdVetaLabel.Text = "Id Nivel:"
+        IdVetaLabel.Text = "ID:"
         '
         'NombreVetaLabel
         '
         NombreVetaLabel.AutoSize = True
-        NombreVetaLabel.Location = New System.Drawing.Point(18, 52)
+        NombreVetaLabel.Location = New System.Drawing.Point(34, 54)
         NombreVetaLabel.Name = "NombreVetaLabel"
-        NombreVetaLabel.Size = New System.Drawing.Size(74, 13)
+        NombreVetaLabel.Size = New System.Drawing.Size(34, 13)
         NombreVetaLabel.TabIndex = 2
-        NombreVetaLabel.Text = "Nombre Nivel:"
-        '
-        'lblMantenimientoVetas
-        '
-        Me.lblMantenimientoVetas.AutoSize = True
-        Me.lblMantenimientoVetas.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMantenimientoVetas.Location = New System.Drawing.Point(12, 25)
-        Me.lblMantenimientoVetas.Name = "lblMantenimientoVetas"
-        Me.lblMantenimientoVetas.Size = New System.Drawing.Size(151, 20)
-        Me.lblMantenimientoVetas.TabIndex = 0
-        Me.lblMantenimientoVetas.Text = "Mantenimiento Nivel"
+        NombreVetaLabel.Text = "Nivel:"
         '
         'btnGrabar
         '
+        Me.btnGrabar.Enabled = False
         Me.btnGrabar.Image = CType(resources.GetObject("btnGrabar.Image"), System.Drawing.Image)
         Me.btnGrabar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnGrabar.Location = New System.Drawing.Point(425, 382)
@@ -106,6 +97,7 @@ Partial Class FrmNivel
         '
         'btnCancelar
         '
+        Me.btnCancelar.Enabled = False
         Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnCancelar.Location = New System.Drawing.Point(212, 382)
@@ -167,7 +159,7 @@ Partial Class FrmNivel
         '
         Me.NombreNivelTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.NivelBindingSource, "NombreNivel", True))
         Me.NombreNivelTextBox.Enabled = False
-        Me.NombreNivelTextBox.Location = New System.Drawing.Point(96, 49)
+        Me.NombreNivelTextBox.Location = New System.Drawing.Point(75, 49)
         Me.NombreNivelTextBox.Name = "NombreNivelTextBox"
         Me.NombreNivelTextBox.Size = New System.Drawing.Size(100, 20)
         Me.NombreNivelTextBox.TabIndex = 3
@@ -175,18 +167,18 @@ Partial Class FrmNivel
         'NivelBindingSource
         '
         Me.NivelBindingSource.DataMember = "Nivel"
-        Me.NivelBindingSource.DataSource = Me.ds
+        Me.NivelBindingSource.DataSource = Me.Ds
         '
-        'ds
+        'Ds
         '
-        Me.ds.DataSetName = "ds"
-        Me.ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.Ds.DataSetName = "ds"
+        Me.Ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'IdNivelTextBox
         '
         Me.IdNivelTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.NivelBindingSource, "IdNivel", True))
         Me.IdNivelTextBox.Enabled = False
-        Me.IdNivelTextBox.Location = New System.Drawing.Point(96, 23)
+        Me.IdNivelTextBox.Location = New System.Drawing.Point(75, 23)
         Me.IdNivelTextBox.Name = "IdNivelTextBox"
         Me.IdNivelTextBox.Size = New System.Drawing.Size(100, 20)
         Me.IdNivelTextBox.TabIndex = 1
@@ -210,31 +202,42 @@ Partial Class FrmNivel
         'IdNivelDataGridViewTextBoxColumn
         '
         Me.IdNivelDataGridViewTextBoxColumn.DataPropertyName = "IdNivel"
-        Me.IdNivelDataGridViewTextBoxColumn.HeaderText = "IdNivel"
+        Me.IdNivelDataGridViewTextBoxColumn.HeaderText = "ID"
         Me.IdNivelDataGridViewTextBoxColumn.Name = "IdNivelDataGridViewTextBoxColumn"
         Me.IdNivelDataGridViewTextBoxColumn.ReadOnly = True
         '
         'NombreNivelDataGridViewTextBoxColumn
         '
         Me.NombreNivelDataGridViewTextBoxColumn.DataPropertyName = "NombreNivel"
-        Me.NombreNivelDataGridViewTextBoxColumn.HeaderText = "NombreNivel"
+        Me.NombreNivelDataGridViewTextBoxColumn.HeaderText = "Nivel"
         Me.NombreNivelDataGridViewTextBoxColumn.Name = "NombreNivelDataGridViewTextBoxColumn"
         Me.NombreNivelDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ErrorProvider
+        '
+        Me.ErrorProvider.ContainerControl = Me
         '
         'NivelTableAdapter
         '
         Me.NivelTableAdapter.ClearBeforeFill = True
         '
-        'ErrorProvider
+        'Label1
         '
-        Me.ErrorProvider.ContainerControl = Me
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Tahoma", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label1.Location = New System.Drawing.Point(12, 20)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(209, 23)
+        Me.Label1.TabIndex = 9
+        Me.Label1.Text = "Mantenimiento Nivel"
         '
         'FrmNivel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 434)
-        Me.Controls.Add(Me.lblMantenimientoVetas)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnGrabar)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnCancelar)
@@ -248,15 +251,13 @@ Partial Class FrmNivel
         Me.GroupBoxDetalleVeta.ResumeLayout(False)
         Me.GroupBoxDetalleVeta.PerformLayout()
         CType(Me.NivelBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ds, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Ds, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NivelDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents lblMantenimientoVetas As Label
     Friend WithEvents btnGrabar As Button
     Friend WithEvents btnEliminar As Button
     Friend WithEvents btnCancelar As Button
@@ -267,10 +268,11 @@ Partial Class FrmNivel
     Friend WithEvents NombreNivelTextBox As TextBox
     Friend WithEvents IdNivelTextBox As TextBox
     Friend WithEvents NivelDataGridView As DataGridView
-    Friend WithEvents ds As ds
+    Friend WithEvents ErrorProvider As ErrorProvider
+    Friend WithEvents Ds As ds
     Friend WithEvents NivelBindingSource As BindingSource
     Friend WithEvents NivelTableAdapter As dsTableAdapters.NivelTableAdapter
     Friend WithEvents IdNivelDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NombreNivelDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ErrorProvider As ErrorProvider
+    Friend WithEvents Label1 As Label
 End Class

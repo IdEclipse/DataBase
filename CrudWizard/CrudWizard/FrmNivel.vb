@@ -3,6 +3,8 @@
     Dim posicion As Integer
 
     Private Sub FrmNivel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'Ds.Nivel' Puede moverla o quitarla según sea necesario.
+        Me.NivelTableAdapter.Fill(Me.Ds.Nivel)
         'TODO: esta línea de código carga datos en la tabla 'ds.Nivel' Puede moverla o quitarla según sea necesario.
         Me.NivelTableAdapter.Fill(Me.ds.Nivel)
 
@@ -18,6 +20,7 @@
 
         Opcion = 1  'Opcion cuando se graba
         NivelDataGridView.Enabled = False
+
     End Sub
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
         AlternaBotones()
@@ -60,75 +63,75 @@
         End Select
     End Sub
 
-    'Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-    '    'Preguntar si esta seguro de birrar el registro
-    '    Dim Respuesta As MsgBoxResult
-    '    posicion = NivelBindingSource.Position
-    '    Respuesta = MessageBox.Show("Borrar el registro actual", "Borrar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        'Preguntar si esta seguro de birrar el registro
+        Dim Respuesta As MsgBoxResult
+        posicion = NivelBindingSource.Position
+        Respuesta = MessageBox.Show("Borrar el registro actual", "Borrar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
 
-    '    If NivelDataGridView.RowCount > 0 Then
+        If NivelDataGridView.RowCount > 0 Then
 
-    '        If Respuesta = vbYes Then
-    '            NivelTableAdapter.DeleteQuery(IdNivelTextBox.Text)
+            If Respuesta = vbYes Then
+                NivelTableAdapter.NivelDeleteQuery(IdNivelTextBox.Text)
 
-    '            'Refrescar el DS
-    '            NivelTableAdapter.Fill(ds.Nivel)
-    '            NivelBindingSource.Position = posicion - 1
-    '        Else
-    '            Exit Sub
-    '        End If
+                'Refrescar el DS
+                NivelTableAdapter.Fill(Ds.Nivel)
+                NivelBindingSource.Position = posicion - 1
+            Else
+                Exit Sub
+            End If
 
-    '    Else
-    '        MessageBox.Show("No existe registro en el Grid", "Borrar", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Exit Sub
-    '    End If
-    'End Sub
+        Else
+            MessageBox.Show("No existe registro en el Grid", "Borrar", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+    End Sub
 
-    'Private Sub btnGrabar_Click(sender As Object, e As EventArgs) Handles btnGrabar.Click
-    '    Select Case Opcion
+    Private Sub btnGrabar_Click(sender As Object, e As EventArgs) Handles btnGrabar.Click
+        Select Case Opcion
 
-    '        Case 1
+            Case 1
 
-    '            If ValidarCaja() = True Then
-    '                Try
-    '                    NivelTableAdapter.InsertQuery(NombreNivelTextBox.Text.ToUpper)
-    '                    Me.NivelTableAdapter.Fill(Me.ds.Nivel)
-    '                    MessageBox.Show("Registro guardado correctamente", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    '                    DeshabilitaCajaTexto()
-    '                    NivelBindingSource.ResumeBinding()  'Conectar el Binding
-    '                    NivelTableAdapter.Fill(ds.Nivel)
-    '                    NivelBindingSource.MoveLast()       'Movel al ultimo registro
-    '                    NivelDataGridView.Enabled = True
-    '                    AlternaBotones()
-    '                Catch ex As Exception
-    '                    MessageBox.Show("Error, registro duplicado", "Error Registrando", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '                    btnCancelar.PerformClick()
-    '                End Try
+                If ValidarCaja() = True Then
+                    Try
+                        NivelTableAdapter.NivelInsertQuery(NombreNivelTextBox.Text.ToUpper)
+                        Me.NivelTableAdapter.Fill(Me.Ds.Nivel)
+                        MessageBox.Show("Registro guardado correctamente", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        DeshabilitaCajaTexto()
+                        NivelBindingSource.ResumeBinding()  'Conectar el Binding
+                        NivelTableAdapter.Fill(Ds.Nivel)
+                        NivelBindingSource.MoveLast()       'Movel al ultimo registro
+                        NivelDataGridView.Enabled = True
+                        AlternaBotones()
+                    Catch ex As Exception
+                        MessageBox.Show("Error, registro duplicado", "Error Registrando", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        btnCancelar.PerformClick()
+                    End Try
 
-    '            Else
-    '                Exit Sub
+                Else
+                    Exit Sub
 
-    '            End If
-
-
-    '        Case 2
+                End If
 
 
-    '            If ValidarCaja() = True Then
-    '                NivelTableAdapter.UpdateQuery(NombreNivelTextBox.Text.ToUpper, IdNivelTextBox.Text)
-    '                Me.NivelTableAdapter.Fill(Me.ds.Nivel)
-    '                MessageBox.Show("Registro Actualizaco correctamente", "Actualizar", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    '                DeshabilitaCajaTexto()
-    '                NivelDataGridView.Enabled = True
-    '                AlternaBotones()
-    '            Else
-    '                Exit Sub
+            Case 2
 
-    '            End If
 
-    '    End Select
+                If ValidarCaja() = True Then
+                    NivelTableAdapter.NivelUpdateQuery(NombreNivelTextBox.Text.ToUpper, IdNivelTextBox.Text)
+                    Me.NivelTableAdapter.Fill(Me.Ds.Nivel)
+                    MessageBox.Show("Registro Actualizaco correctamente", "Actualizar", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    DeshabilitaCajaTexto()
+                    NivelDataGridView.Enabled = True
+                    AlternaBotones()
+                Else
+                    Exit Sub
 
-    'End Sub
+                End If
+
+        End Select
+
+    End Sub
 
 
     Private Sub AlternaBotones()
