@@ -25,53 +25,140 @@ Partial Class FrmLoggin
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLoggin))
         Me.TextBoxNombre = New System.Windows.Forms.TextBox()
         Me.TextBoxPassword = New System.Windows.Forms.TextBox()
-        Me.btnGrabar = New System.Windows.Forms.Button()
+        Me.btnIngresar = New System.Windows.Forms.Button()
+        Me.UsuarioTableAdapter = New CrudWizard.dsTableAdapters.UsuarioTableAdapter()
+        Me.Ds = New CrudWizard.ds()
+        Me.LabelUsuario = New System.Windows.Forms.Label()
+        Me.LabelPassword = New System.Windows.Forms.Label()
+        Me.btnSalir = New System.Windows.Forms.Button()
+        Me.GroupBoxGrupo1 = New System.Windows.Forms.GroupBox()
+        Me.PictureBox = New System.Windows.Forms.PictureBox()
+        CType(Me.Ds, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBoxGrupo1.SuspendLayout()
+        CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TextBoxNombre
         '
-        Me.TextBoxNombre.Location = New System.Drawing.Point(179, 50)
+        Me.TextBoxNombre.Location = New System.Drawing.Point(175, 24)
         Me.TextBoxNombre.Name = "TextBoxNombre"
         Me.TextBoxNombre.Size = New System.Drawing.Size(100, 20)
         Me.TextBoxNombre.TabIndex = 0
+        Me.TextBoxNombre.Text = "Donell"
         '
         'TextBoxPassword
         '
-        Me.TextBoxPassword.Location = New System.Drawing.Point(178, 91)
+        Me.TextBoxPassword.Location = New System.Drawing.Point(175, 58)
         Me.TextBoxPassword.Name = "TextBoxPassword"
+        Me.TextBoxPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TextBoxPassword.Size = New System.Drawing.Size(100, 20)
         Me.TextBoxPassword.TabIndex = 1
-        Me.TextBoxPassword.Text = "Password"
+        Me.TextBoxPassword.Text = "8675"
         '
-        'btnGrabar
+        'btnIngresar
         '
-        Me.btnGrabar.Enabled = False
-        Me.btnGrabar.Image = CType(resources.GetObject("btnGrabar.Image"), System.Drawing.Image)
-        Me.btnGrabar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGrabar.Location = New System.Drawing.Point(273, 136)
-        Me.btnGrabar.Name = "btnGrabar"
-        Me.btnGrabar.Size = New System.Drawing.Size(92, 44)
-        Me.btnGrabar.TabIndex = 8
-        Me.btnGrabar.Text = "Ingresar"
-        Me.btnGrabar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnGrabar.UseVisualStyleBackColor = True
+        Me.btnIngresar.Image = CType(resources.GetObject("btnIngresar.Image"), System.Drawing.Image)
+        Me.btnIngresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnIngresar.Location = New System.Drawing.Point(190, 121)
+        Me.btnIngresar.Name = "btnIngresar"
+        Me.btnIngresar.Size = New System.Drawing.Size(114, 44)
+        Me.btnIngresar.TabIndex = 8
+        Me.btnIngresar.Text = "Ingresar"
+        Me.btnIngresar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnIngresar.UseVisualStyleBackColor = True
+        '
+        'UsuarioTableAdapter
+        '
+        Me.UsuarioTableAdapter.ClearBeforeFill = True
+        '
+        'Ds
+        '
+        Me.Ds.DataSetName = "ds"
+        Me.Ds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'LabelUsuario
+        '
+        Me.LabelUsuario.AutoSize = True
+        Me.LabelUsuario.Location = New System.Drawing.Point(110, 27)
+        Me.LabelUsuario.Name = "LabelUsuario"
+        Me.LabelUsuario.Size = New System.Drawing.Size(43, 13)
+        Me.LabelUsuario.TabIndex = 9
+        Me.LabelUsuario.Text = "Usuario"
+        '
+        'LabelPassword
+        '
+        Me.LabelPassword.AutoSize = True
+        Me.LabelPassword.Location = New System.Drawing.Point(110, 65)
+        Me.LabelPassword.Name = "LabelPassword"
+        Me.LabelPassword.Size = New System.Drawing.Size(53, 13)
+        Me.LabelPassword.TabIndex = 9
+        Me.LabelPassword.Text = "Password"
+        '
+        'btnSalir
+        '
+        Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
+        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSalir.Location = New System.Drawing.Point(12, 121)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(114, 44)
+        Me.btnSalir.TabIndex = 8
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnSalir.UseVisualStyleBackColor = True
+        '
+        'GroupBoxGrupo1
+        '
+        Me.GroupBoxGrupo1.Controls.Add(Me.PictureBox)
+        Me.GroupBoxGrupo1.Controls.Add(Me.LabelUsuario)
+        Me.GroupBoxGrupo1.Controls.Add(Me.LabelPassword)
+        Me.GroupBoxGrupo1.Controls.Add(Me.TextBoxNombre)
+        Me.GroupBoxGrupo1.Controls.Add(Me.TextBoxPassword)
+        Me.GroupBoxGrupo1.Location = New System.Drawing.Point(12, 6)
+        Me.GroupBoxGrupo1.Name = "GroupBoxGrupo1"
+        Me.GroupBoxGrupo1.Size = New System.Drawing.Size(292, 103)
+        Me.GroupBoxGrupo1.TabIndex = 10
+        Me.GroupBoxGrupo1.TabStop = False
+        '
+        'PictureBox
+        '
+        Me.PictureBox.Image = CType(resources.GetObject("PictureBox.Image"), System.Drawing.Image)
+        Me.PictureBox.Location = New System.Drawing.Point(6, 11)
+        Me.PictureBox.Name = "PictureBox"
+        Me.PictureBox.Size = New System.Drawing.Size(87, 85)
+        Me.PictureBox.TabIndex = 10
+        Me.PictureBox.TabStop = False
         '
         'FrmLoggin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(388, 192)
-        Me.Controls.Add(Me.btnGrabar)
-        Me.Controls.Add(Me.TextBoxPassword)
-        Me.Controls.Add(Me.TextBoxNombre)
+        Me.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(316, 171)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.GroupBoxGrupo1)
+        Me.Controls.Add(Me.btnSalir)
+        Me.Controls.Add(Me.btnIngresar)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "FrmLoggin"
-        Me.Text = "Loggin"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Sistema de Control - Planeamiento"
+        CType(Me.Ds, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBoxGrupo1.ResumeLayout(False)
+        Me.GroupBoxGrupo1.PerformLayout()
+        CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents TextBoxNombre As TextBox
     Friend WithEvents TextBoxPassword As TextBox
-    Friend WithEvents btnGrabar As Button
+    Friend WithEvents btnIngresar As Button
+    Friend WithEvents UsuarioTableAdapter As dsTableAdapters.UsuarioTableAdapter
+    Friend WithEvents Ds As ds
+    Friend WithEvents LabelUsuario As Label
+    Friend WithEvents LabelPassword As Label
+    Friend WithEvents btnSalir As Button
+    Friend WithEvents GroupBoxGrupo1 As GroupBox
+    Friend WithEvents PictureBox As PictureBox
 End Class
